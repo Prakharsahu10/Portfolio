@@ -44,7 +44,9 @@ export default function Navbar() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex-shrink-0"
           >
-            <h1 className="text-2xl font-bold text-white">Portfolio</h1>
+            <h1 className="text-2xl font-bold text-white hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">
+              Portfolio
+            </h1>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -59,13 +61,17 @@ export default function Navbar() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => handleNavClick(item.href)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                    activeSection === item.href.substring(1)
-                      ? "bg-gray-700 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                  }`}
+                  className="px-3 py-2 rounded-md text-base font-medium relative group"
                 >
-                  {item.name}
+                  <span
+                    className={`transition-all duration-500 ease-in-out ${
+                      activeSection === item.href.substring(1)
+                        ? "text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text"
+                        : "text-gray-300 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text"
+                    }`}
+                  >
+                    {item.name}
+                  </span>
                 </motion.button>
               ))}
             </div>
@@ -127,13 +133,17 @@ export default function Navbar() {
                     handleNavClick(item.href);
                     setIsMobileMenuOpen(false);
                   }}
-                  className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                    activeSection === item.href.substring(1)
-                      ? "bg-gray-700 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                  }`}
+                  className="block w-full text-left px-3 py-2 rounded-md text-lg font-medium relative group"
                 >
-                  {item.name}
+                  <span
+                    className={`transition-all duration-500 ease-in-out ${
+                      activeSection === item.href.substring(1)
+                        ? "text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text"
+                        : "text-gray-300 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text"
+                    }`}
+                  >
+                    {item.name}
+                  </span>
                 </motion.button>
               ))}
             </div>

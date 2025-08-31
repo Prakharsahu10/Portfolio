@@ -1,8 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ReactNode } from "react";
 import Image from "next/image";
+import {
+  Github,
+  Linkedin,
+  Twitter,
+  Instagram,
+  MessageCircle,
+  Code2,
+} from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import TypingAnimation from "@/components/typing-animation";
 
 const fadeInUp = {
@@ -32,7 +41,7 @@ interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
   id?: string;
-  variants?: object;
+  variants?: Variants;
 }
 
 const AnimatedSection = ({
@@ -75,20 +84,20 @@ export default function Home() {
             </span>
           </motion.h1>
 
+          {/* "I'm" text before typing animation */}
+          <motion.div
+            className="text-xl md:text-5xl text-gray-300"
+            variants={fadeInUp}
+          >
+            I&apos;m
+          </motion.div>
+
           <motion.div
             className="text-2xl md:text-4xl text-gray-300"
             variants={fadeInUp}
           >
             <TypingAnimation />
           </motion.div>
-
-          <motion.p
-            className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto"
-            variants={fadeInUp}
-          >
-            Passionate about crafting scalable web applications and exploring
-            the world of DevOps engineering.
-          </motion.p>
 
           <motion.div className="space-x-4" variants={fadeInUp}>
             <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-3 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all">
@@ -97,6 +106,84 @@ export default function Home() {
             <button className="border border-white/20 text-white px-8 py-3 rounded-lg hover:bg-white/10 transition-all">
               Get In Touch
             </button>
+          </motion.div>
+
+          {/* Social Media Icons */}
+          <motion.div
+            className="flex justify-center space-x-6 mt-8"
+            variants={fadeInUp}
+          >
+            {/* LinkedIn */}
+            <motion.a
+              href="https://www.linkedin.com/in/prakhar-sahu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-blue-600 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Linkedin size={24} className="group-hover:animate-pulse" />
+            </motion.a>
+
+            {/* GitHub */}
+            <motion.a
+              href="https://github.com/Prakharsahu10"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-gray-800 hover:border-gray-700 hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300 group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Github size={24} className="group-hover:animate-pulse" />
+            </motion.a>
+
+            {/* Twitter */}
+            <motion.a
+              href="https://x.com/Prakhar_018"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-sky-500 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/25 transition-all duration-300 group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Twitter size={24} className="group-hover:animate-pulse" />
+            </motion.a>
+
+            {/* Instagram */}
+            <motion.a
+              href="https://www.instagram.com/ig.prakharsahu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:border-pink-500 hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300 group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Instagram size={24} className="group-hover:animate-pulse" />
+            </motion.a>
+
+            {/* Discord */}
+            <motion.a
+              href="https://discord.com/users/prakhar3866"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-indigo-600 hover:border-indigo-600 hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <MessageCircle size={24} className="group-hover:animate-pulse" />
+            </motion.a>
+
+            {/* LeetCode */}
+            <motion.a
+              href="https://leetcode.com/u/PRAKHAR_010/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-yellow-600 hover:border-yellow-600 hover:shadow-lg hover:shadow-yellow-500/25 transition-all duration-300 group"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Code2 size={24} className="group-hover:animate-pulse" />
+            </motion.a>
           </motion.div>
         </div>
       </motion.section>
@@ -162,7 +249,8 @@ export default function Home() {
                 className="text-xl italic text-gray-300 border-l-4 border-blue-500 pl-6 mb-8"
                 variants={fadeInUp}
               >
-                "The best way to predict the future is to invent it."
+                &ldquo;The best way to predict the future is to invent
+                it.&rdquo;
                 <span className="block mt-2 text-gray-400 text-sm not-italic">
                   – Alan Kay
                 </span>
@@ -172,47 +260,74 @@ export default function Home() {
                 className="text-lg text-gray-300 leading-relaxed"
                 variants={fadeInUp}
               >
-                I'm passionate about{" "}
-                <span className="font-semibold text-white">
+                I&apos;m passionate about{" "}
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   Computer Science
                 </span>
                 , with a strong interest in{" "}
-                <span className="font-semibold text-white">
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   full-stack development
                 </span>{" "}
                 and a growing curiosity for{" "}
-                <span className="font-semibold text-white">DevOps</span> and
-                modern technologies.
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  DevOps
+                </span>{" "}
+                and modern technologies.
               </motion.p>
 
               <motion.p
                 className="text-lg text-gray-300 leading-relaxed"
                 variants={fadeInUp}
               >
-                I've built end-to-end projects like{" "}
-                <span className="font-semibold text-white">FinTrack</span>, an
-                AI-powered financial tracker,{" "}
-                <span className="font-semibold text-white">StreamTalk</span>, a
-                real-time messaging app, and{" "}
-                <span className="font-semibold text-white">Viducate</span>, an
-                AI-driven learning platform. These reflect my ability to create
-                scalable, secure, and user-focused applications.
+                My expertise spans across the entire development lifecycle, from{" "}
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  frontend architectures
+                </span>{" "}
+                using{" "}
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  React, Next.js, and TypeScript
+                </span>{" "}
+                to backend systems with{" "}
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Node.js, Express, and Python
+                </span>
+                . I focus on building{" "}
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  RESTful APIs
+                </span>{" "}
+                and implementing{" "}
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  microservices architecture
+                </span>{" "}
+                for scalable applications.
               </motion.p>
 
               <motion.p
                 className="text-lg text-gray-300 leading-relaxed"
                 variants={fadeInUp}
               >
-                Currently, I'm diving deeper into DevOps tools such as{" "}
-                <span className="font-semibold text-white">Docker</span>,{" "}
-                <span className="font-semibold text-white">
-                  CI/CD pipelines
+                In the DevOps realm, I work extensively with{" "}
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  containerization using Docker
+                </span>
+                , orchestration with{" "}
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Kubernetes
                 </span>
                 , and{" "}
-                <span className="font-semibold text-white">
-                  cloud deployment
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  infrastructure as code
+                </span>{" "}
+                using tools like{" "}
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Terraform
                 </span>
-                , aiming to bridge the gap between development and operations.
+                . I&apos;m experienced in setting up{" "}
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  CI/CD pipelines
+                </span>{" "}
+                with GitHub Actions and Jenkins for automated testing and
+                deployment.
               </motion.p>
 
               <motion.p
@@ -221,15 +336,18 @@ export default function Home() {
               >
                 My work has also been recognized internationally — I was
                 selected as an{" "}
-                <span className="font-semibold text-white">
-                  International Finalist at IEEE YESIST12 (2025)
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  International Finalist at IEEE YESIST12 (2025){" "}
+                  <span className="font-semibold text-sm bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    MY
+                  </span>
                 </span>
                 , representing India at{" "}
-                <span className="font-semibold text-white">
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   Universiti Kebangsaan Malaysia
                 </span>{" "}
                 for sustainable tech innovation. I also won the{" "}
-                <span className="font-semibold text-white">
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   Best Project Award
                 </span>{" "}
                 at IEEE YESIST12 Prelims 2025.
@@ -239,8 +357,8 @@ export default function Home() {
                 className="text-lg text-gray-300 leading-relaxed"
                 variants={fadeInUp}
               >
-                🚀 I'm open to{" "}
-                <span className="font-semibold text-white">
+                I&apos;m open to{" "}
+                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   internship opportunities
                 </span>{" "}
                 where I can collaborate, contribute, and continue learning in
@@ -254,36 +372,76 @@ export default function Home() {
       {/* Skills Section */}
       <AnimatedSection
         id="skills"
-        className="min-h-screen flex items-center justify-center px-4"
+        className="min-h-screen flex items-center justify-center px-4 py-16"
         variants={staggerContainer}
       >
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto">
           <motion.h2
-            className="text-3xl md:text-5xl font-bold text-white mb-8"
+            className="text-3xl md:text-5xl font-bold text-white mb-16 text-center"
             variants={fadeInUp}
           >
-            Skills
+            Skills & Technologies
           </motion.h2>
+
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
+            className="grid grid-cols-3 md:grid-cols-5 gap-8"
             variants={staggerContainer}
           >
             {[
-              "JavaScript",
-              "TypeScript",
-              "React",
-              "Next.js",
-              "Node.js",
-              "Python",
-              "Docker",
-              "AWS",
-            ].map((skill) => (
-              <motion.div
-                key={skill}
-                className="bg-white/10 p-4 rounded-lg hover:bg-white/20 transition-all"
-                variants={fadeInUp}
-              >
-                {skill}
+              { name: "C", icon: "/assets/languages/c.svg" },
+              { name: "C++", icon: "/assets/languages/cpp.svg" },
+              { name: "HTML5", icon: "/assets/languages/html.svg" },
+              { name: "CSS3", icon: "/assets/languages/css.svg" },
+              { name: "Bootstrap", icon: "/assets/frameworks/bootstrap.svg" },
+              { name: "JavaScript", icon: "/assets/languages/javascript.svg" },
+              { name: "TypeScript", icon: "/assets/languages/typescript.svg" },
+              { name: "TailwindCSS", icon: "/assets/frameworks/tailwind.svg" },
+              { name: "Next.js", icon: "/assets/frameworks/nextjs.svg" },
+              { name: "React", icon: "/assets/frameworks/react.svg" },
+              { name: "Node.js", icon: "/assets/frameworks/nodejs.svg" },
+              { name: "Express.js", icon: "/assets/frameworks/express.svg" },
+              { name: "Socket.io", icon: "/assets/frameworks/socketio.svg" },
+              { name: "Python", icon: "/assets/languages/python.svg" },
+              {
+                name: "React Native",
+                icon: "/assets/frameworks/react-native.svg",
+              },
+              { name: "Expo", icon: "/assets/frameworks/expo.svg" },
+              { name: "MongoDB", icon: "/assets/skills/mongodb.svg" },
+              { name: "MySQL", icon: "/assets/skills/mysql.svg" },
+              { name: "Prisma", icon: "/assets/skills/prisma.svg" },
+              { name: "Firebase", icon: "/assets/skills/firebase.svg" },
+              { name: "Docker", icon: "/assets/skills/docker.svg" },
+              { name: "Kubernetes", icon: "/assets/skills/kubernetes.svg" },
+              { name: "Jenkins", icon: "/assets/skills/jenkins.svg" },
+              { name: "Terraform", icon: "/assets/skills/terraform.svg" },
+              { name: "GitHub", icon: "/assets/skills/github.svg" },
+              {
+                name: "GitHub Actions",
+                icon: "/assets/skills/github-actions.svg",
+              },
+              { name: "Git", icon: "/assets/skills/git.svg" },
+              { name: "Bash", icon: "/assets/skills/bash.svg" },
+              { name: "AWS", icon: "/assets/skills/aws.svg" },
+              { name: "PostMan", icon: "/assets/skills/postman.svg" },
+            ].map((item) => (
+              <motion.div key={item.name} variants={fadeInUp}>
+                <Card className="bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 group cursor-pointer h-40">
+                  <CardContent className="p-8 flex flex-col items-center justify-center space-y-6 h-full">
+                    <div className="w-20 h-20 relative group-hover:scale-110 transition-transform duration-300">
+                      <Image
+                        src={item.icon}
+                        alt={item.name}
+                        width={80}
+                        height={80}
+                        className="object-contain"
+                      />
+                    </div>
+                    <h4 className="text-white font-medium text-center group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300 text-sm">
+                      {item.name}
+                    </h4>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </motion.div>
@@ -376,8 +534,8 @@ export default function Home() {
             Get In Touch
           </motion.h2>
           <motion.p className="text-lg text-gray-300 mb-8" variants={fadeInUp}>
-            I'm always open to discussing new opportunities and interesting
-            projects. Let's connect!
+            I&apos;m always open to discussing new opportunities and interesting
+            projects. Let&apos;s connect!
           </motion.p>
           <motion.div className="space-x-4" variants={fadeInUp}>
             <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-3 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all">
