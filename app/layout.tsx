@@ -1,4 +1,5 @@
 import "./globals.css";
+import Navbar from "@/components/navbar";
 
 export default function RootLayout({
   children,
@@ -7,7 +8,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-950 to-black">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
