@@ -3,7 +3,11 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const titles = ["FullStack Developer", "DevOps Engineer"];
+const titles = [
+  "FullStack Developer",
+  "React Native Developer",
+  "DevOps Engineer",
+];
 
 export default function TypingAnimation() {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);

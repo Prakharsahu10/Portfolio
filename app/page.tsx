@@ -8,11 +8,13 @@ import {
   Linkedin,
   Twitter,
   Instagram,
-  MessageCircle,
-  Code2,
+  ExternalLink,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import TypingAnimation from "@/components/typing-animation";
+import DiscordIcon from "@/components/icons/discord-icon";
+import LeetCodeIcon from "@/components/icons/leetcode-icon";
+import Link from "next/link";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -78,10 +80,7 @@ export default function Home() {
             className="text-4xl md:text-7xl font-bold text-white"
             variants={fadeInUp}
           >
-            Hi, I&apos;m{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Prakhar!
-            </span>
+            Hi, I&apos;m <span className="gradient-text-simple">Prakhar!</span>
           </motion.h1>
 
           {/* "I'm" text before typing animation */}
@@ -170,7 +169,7 @@ export default function Home() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              <MessageCircle size={24} className="group-hover:animate-pulse" />
+              <DiscordIcon size={24} className="group-hover:animate-pulse" />
             </motion.a>
 
             {/* LeetCode */}
@@ -182,7 +181,7 @@ export default function Home() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Code2 size={24} className="group-hover:animate-pulse" />
+              <LeetCodeIcon size={24} className="group-hover:animate-pulse" />
             </motion.a>
           </motion.div>
         </div>
@@ -261,18 +260,16 @@ export default function Home() {
                 variants={fadeInUp}
               >
                 I&apos;m passionate about{" "}
-                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="font-semibold gradient-text">
                   Computer Science
                 </span>
                 , with a strong interest in{" "}
-                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="font-semibold gradient-text">
                   full-stack development
                 </span>{" "}
                 and a growing curiosity for{" "}
-                <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  DevOps
-                </span>{" "}
-                and modern technologies.
+                <span className="font-semibold gradient-text">DevOps</span> and
+                modern technologies.
               </motion.p>
 
               <motion.p
@@ -445,6 +442,147 @@ export default function Home() {
                 </Card>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </AnimatedSection>
+
+      {/* Projects Section */}
+      <AnimatedSection
+        id="projects"
+        className="min-h-screen flex items-center justify-center px-4"
+        variants={staggerContainer}
+      >
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            className="text-3xl md:text-5xl font-bold text-white mb-16 text-center"
+            variants={fadeInUp}
+          >
+            Projects
+          </motion.h2>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl mx-auto"
+            variants={staggerContainer}
+          >
+            {/* Project 1 */}
+            <motion.div variants={fadeInUp} className="w-full">
+              <Link href="/projects/fintrack">
+                <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-blue-500/25 hover:border-blue-500/30">
+                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                    {/* Project Thumbnail */}
+                    <div className="h-40 w-40 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300">
+                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                        🚀
+                      </div>
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                      FinTrack
+                    </h3>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* Project 2 */}
+            <motion.div variants={fadeInUp} className="w-full">
+              <Link href="/projects/task-manager">
+                <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-green-500/25 hover:border-green-500/30">
+                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                    {/* Project Thumbnail */}
+                    <div className="h-40 w-40 bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-green-500/30 group-hover:to-blue-500/30 transition-all duration-300">
+                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                        📱
+                      </div>
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                      StreamTalk
+                    </h3>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* Project 3 */}
+            <motion.div variants={fadeInUp} className="w-full">
+              <Link href="/projects/viducate">
+                <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-purple-500/25 hover:border-purple-500/30">
+                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                    {/* Project Thumbnail */}
+                    <div className="h-40 w-40 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
+                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                        ⚙️
+                      </div>
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                      Viducate
+                    </h3>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* Project 4 */}
+            <motion.div variants={fadeInUp} className="w-full">
+              <Link href="/projects/snapsummary">
+                <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-orange-500/25 hover:border-orange-500/30">
+                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                    {/* Project Thumbnail */}
+                    <div className="h-40 w-40 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-orange-500/30 group-hover:to-red-500/30 transition-all duration-300">
+                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                        🧩
+                      </div>
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                      SnapSummary - Chrome Extension
+                    </h3>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* Project 5 */}
+            <motion.div variants={fadeInUp} className="w-full">
+              <Link href="/projects/cloudops">
+                <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-cyan-500/25 hover:border-cyan-500/30">
+                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                    {/* Project Thumbnail */}
+                    <div className="h-40 w-40 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-cyan-500/30 group-hover:to-blue-500/30 transition-all duration-300">
+                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                        ☁️
+                      </div>
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                      CloudOps
+                    </h3>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* Project 6 */}
+            <motion.div variants={fadeInUp} className="w-full">
+              <Link href="/projects/aiwriter">
+                <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-pink-500/25 hover:border-pink-500/30">
+                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                    {/* Project Thumbnail */}
+                    <div className="h-40 w-40 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-pink-500/30 group-hover:to-purple-500/30 transition-all duration-300">
+                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                        ✍️
+                      </div>
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                      AI Writer
+                    </h3>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </AnimatedSection>

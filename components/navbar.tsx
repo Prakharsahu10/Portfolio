@@ -8,6 +8,7 @@ const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
   { name: "Achievement", href: "#achievement" },
   { name: "Experience", href: "#experience" },
   { name: "Contact", href: "#contact" },
@@ -44,7 +45,7 @@ export default function Navbar() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex-shrink-0"
           >
-            <h1 className="text-2xl font-bold text-white hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent transition-all duration-300 cursor-pointer">
+            <h1 className="text-2xl font-bold text-white gradient-hover transition-all duration-300 cursor-pointer">
               Portfolio
             </h1>
           </motion.div>
@@ -66,8 +67,8 @@ export default function Navbar() {
                   <span
                     className={`transition-all duration-500 ease-in-out ${
                       activeSection === item.href.substring(1)
-                        ? "text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text"
-                        : "text-gray-300 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text"
+                        ? "gradient-text"
+                        : "text-gray-300 group-hover:gradient-text"
                     }`}
                   >
                     {item.name}
@@ -138,8 +139,8 @@ export default function Navbar() {
                   <span
                     className={`transition-all duration-500 ease-in-out ${
                       activeSection === item.href.substring(1)
-                        ? "text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text"
-                        : "text-gray-300 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text"
+                        ? "gradient-text"
+                        : "text-gray-300 group-hover:gradient-text"
                     }`}
                   >
                     {item.name}
