@@ -20,7 +20,7 @@ const slideInRight = {
   animate: { opacity: 1, x: 0, transition: { duration: 0.8 } },
 };
 
-export default function SnapSummaryPage() {
+export default function TaskManagerPage() {
   return (
     <div className="min-h-screen pt-20">
       <div className="max-w-6xl mx-auto px-4 py-8">
@@ -46,12 +46,12 @@ export default function SnapSummaryPage() {
             initial="initial"
             animate="animate"
             variants={slideInLeft}
-            className="space-y-6"
+            className="space-y-4"
           >
             <Card className="bg-white/5 border-white/10 overflow-hidden">
               <CardContent className="p-0">
-                <div className="h-64 md:h-96 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center">
-                  <div className="text-8xl text-white/40">🧩</div>
+                <div className="h-64 md:h-96 bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center">
+                  <div className="text-8xl text-white/40">✅</div>
                 </div>
               </CardContent>
             </Card>
@@ -69,7 +69,7 @@ export default function SnapSummaryPage() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Github size={36} className="group-hover:animate-pulse" />
+                <Github size={28} className="group-hover:animate-pulse" />
               </motion.a>
 
               <motion.a
@@ -80,7 +80,7 @@ export default function SnapSummaryPage() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <ExternalLink size={36} className="group-hover:animate-pulse" />
+                <ExternalLink size={28} className="group-hover:animate-pulse" />
               </motion.a>
             </motion.div>
           </motion.div>
@@ -96,73 +96,68 @@ export default function SnapSummaryPage() {
               className="text-3xl md:text-4xl font-bold text-white"
               variants={fadeInUp}
             >
-              SnapSummary - Chrome Extension
+              ✅ Task Manager
             </motion.h1>
 
-            <motion.div className="space-y-6 text-gray-300" variants={fadeInUp}>
-              <p className="leading-relaxed text-lg">
-                SnapSummary is a{" "}
-                <span className="gradient-text font-semibold">
-                  Chrome extension
+            <motion.div className="space-y-4 text-gray-300" variants={fadeInUp}>
+              <p className="leading-relaxed mb-6">
+                A comprehensive{" "}
+                <span className="gradient-text">
+                  task management application
                 </span>{" "}
-                that instantly transforms any webpage into concise, readable
-                summaries with a single click, powered by{" "}
-                <span className="gradient-text">Google&apos;s Gemini AI</span>{" "}
-                technology.
+                built with modern web technologies for efficient productivity
+                tracking.
               </p>
 
               <div className="space-y-6">
+                {/* Task Management Features */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
                     <span className="gradient-text">
-                      AI-Powered Content Extraction:
+                      Smart Task Organization
                     </span>{" "}
-                    Leverages{" "}
-                    <span className="gradient-text">
-                      Google&apos;s Gemini AI
-                    </span>{" "}
-                    to extract and analyze important content from articles, blog
-                    posts, and web pages with intelligent content recognition.
+                    with <span className="gradient-text">priority levels</span>,{" "}
+                    <span className="gradient-text">due dates</span>, and{" "}
+                    <span className="gradient-text">category filtering</span>{" "}
+                    for efficient workflow management
                   </p>
                 </div>
 
+                {/* Real-time Collaboration */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
                     <span className="gradient-text">
-                      Customizable Summary Formats:
+                      Real-time Collaboration
                     </span>{" "}
-                    Choose between brief overviews, detailed summaries, or{" "}
-                    <span className="gradient-text">
-                      easy-to-scan bullet points
-                    </span>{" "}
-                    tailored to your reading preferences and time constraints.
+                    with <span className="gradient-text">team workspaces</span>,{" "}
+                    <span className="gradient-text">task assignments</span>, and{" "}
+                    <span className="gradient-text">progress tracking</span>
                   </p>
                 </div>
 
+                {/* Analytics & Reporting */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
-                    <span className="gradient-text">One-Click Simplicity:</span>{" "}
-                    Perfect for researchers, students, and{" "}
-                    <span className="gradient-text">busy professionals</span>{" "}
-                    who need to quickly understand web content without reading
-                    entire pages.
+                    <span className="gradient-text">Analytics Dashboard</span>{" "}
+                    with{" "}
+                    <span className="gradient-text">productivity insights</span>
+                    , <span className="gradient-text">completion rates</span>,
+                    and <span className="gradient-text">time tracking</span>
                   </p>
                 </div>
 
+                {/* Modern UI/UX */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
-                    <span className="gradient-text">Seamless Integration:</span>{" "}
-                    Built with{" "}
-                    <span className="gradient-text">Manifest V3</span>{" "}
-                    technology, featuring simple API key setup and delivering{" "}
-                    <span className="gradient-text">
-                      intelligent web summaries
-                    </span>{" "}
-                    whenever needed.
+                    <span className="gradient-text">Modern Interface</span> with{" "}
+                    <span className="gradient-text">drag-and-drop</span>{" "}
+                    functionality,{" "}
+                    <span className="gradient-text">dark mode</span>, and{" "}
+                    <span className="gradient-text">responsive design</span>
                   </p>
                 </div>
               </div>
@@ -174,17 +169,20 @@ export default function SnapSummaryPage() {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "JavaScript",
-                  "Chrome Extension",
-                  "Manifest V3",
-                  "CSS3",
-                  "Google Gemini API",
-                  "HTML5",
-                  "Web APIs",
+                  "React",
+                  "TypeScript",
+                  "Next.js",
+                  "Prisma",
+                  "PostgreSQL",
+                  "Tailwind CSS",
+                  "Framer Motion",
+                  "Zustand",
+                  "React DnD",
+                  "Chart.js",
                 ].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300 hover:gradient-text hover:bg-white/20 hover:border-purple-400/50 transition-all duration-300 cursor-default"
+                    className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300 hover:gradient-text hover:bg-white/20 hover:border-blue-400/50 transition-all duration-300 cursor-default"
                   >
                     {tech}
                   </span>

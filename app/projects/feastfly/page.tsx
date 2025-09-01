@@ -20,7 +20,7 @@ const slideInRight = {
   animate: { opacity: 1, x: 0, transition: { duration: 0.8 } },
 };
 
-export default function SnapSummaryPage() {
+export default function FeastFlyPage() {
   return (
     <div className="min-h-screen pt-20">
       <div className="max-w-6xl mx-auto px-4 py-8">
@@ -51,7 +51,7 @@ export default function SnapSummaryPage() {
             <Card className="bg-white/5 border-white/10 overflow-hidden">
               <CardContent className="p-0">
                 <div className="h-64 md:h-96 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center">
-                  <div className="text-8xl text-white/40">🧩</div>
+                  <div className="text-8xl text-white/40">🍽️</div>
                 </div>
               </CardContent>
             </Card>
@@ -96,73 +96,80 @@ export default function SnapSummaryPage() {
               className="text-3xl md:text-4xl font-bold text-white"
               variants={fadeInUp}
             >
-              SnapSummary - Chrome Extension
+              🍔 FeastFly
             </motion.h1>
 
-            <motion.div className="space-y-6 text-gray-300" variants={fadeInUp}>
-              <p className="leading-relaxed text-lg">
-                SnapSummary is a{" "}
-                <span className="gradient-text font-semibold">
-                  Chrome extension
+            <motion.div className="space-y-4 text-gray-300" variants={fadeInUp}>
+              <p className="leading-relaxed mb-6">
+                A modern{" "}
+                <span className="gradient-text">
+                  React Native food ordering app
                 </span>{" "}
-                that instantly transforms any webpage into concise, readable
-                summaries with a single click, powered by{" "}
-                <span className="gradient-text">Google&apos;s Gemini AI</span>{" "}
-                technology.
+                built with cutting-edge technologies for seamless mobile dining
+                experience.
               </p>
 
               <div className="space-y-6">
+                {/* Full-Stack Mobile Development */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
                     <span className="gradient-text">
-                      AI-Powered Content Extraction:
+                      Full-Stack Mobile Development
                     </span>{" "}
-                    Leverages{" "}
-                    <span className="gradient-text">
-                      Google&apos;s Gemini AI
-                    </span>{" "}
-                    to extract and analyze important content from articles, blog
-                    posts, and web pages with intelligent content recognition.
+                    with <span className="gradient-text">React Native</span> and{" "}
+                    <span className="gradient-text">Expo Router</span>,
+                    featuring <span className="gradient-text">TypeScript</span>{" "}
+                    for type safety and{" "}
+                    <span className="gradient-text">Zustand</span> for state
+                    management
                   </p>
                 </div>
 
+                {/* Authentication & Backend */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
-                    <span className="gradient-text">
-                      Customizable Summary Formats:
-                    </span>{" "}
-                    Choose between brief overviews, detailed summaries, or{" "}
-                    <span className="gradient-text">
-                      easy-to-scan bullet points
-                    </span>{" "}
-                    tailored to your reading preferences and time constraints.
+                    <span className="gradient-text">Robust Authentication</span>{" "}
+                    with <span className="gradient-text">Appwrite BaaS</span>,
+                    secure user management,{" "}
+                    <span className="gradient-text">session handling</span>, and{" "}
+                    <span className="gradient-text">Sentry integration</span>{" "}
+                    for error tracking
                   </p>
                 </div>
 
+                {/* Advanced UI/UX */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
-                    <span className="gradient-text">One-Click Simplicity:</span>{" "}
-                    Perfect for researchers, students, and{" "}
-                    <span className="gradient-text">busy professionals</span>{" "}
-                    who need to quickly understand web content without reading
-                    entire pages.
+                    <span className="gradient-text">Advanced UI/UX</span> with{" "}
+                    <span className="gradient-text">dynamic menu browsing</span>
+                    ,{" "}
+                    <span className="gradient-text">
+                      interactive cart system
+                    </span>
+                    , and{" "}
+                    <span className="gradient-text">responsive layouts</span>{" "}
+                    for all screen sizes
                   </p>
                 </div>
 
+                {/* Database & Production Features */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
-                    <span className="gradient-text">Seamless Integration:</span>{" "}
-                    Built with{" "}
-                    <span className="gradient-text">Manifest V3</span>{" "}
-                    technology, featuring simple API key setup and delivering{" "}
                     <span className="gradient-text">
-                      intelligent web summaries
+                      Complex Database Design
                     </span>{" "}
-                    whenever needed.
+                    with{" "}
+                    <span className="gradient-text">relational schemas</span>,{" "}
+                    <span className="gradient-text">automated seeding</span>,
+                    and{" "}
+                    <span className="gradient-text">
+                      production-ready features
+                    </span>{" "}
+                    with comprehensive documentation
                   </p>
                 </div>
               </div>
@@ -174,17 +181,20 @@ export default function SnapSummaryPage() {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "JavaScript",
-                  "Chrome Extension",
-                  "Manifest V3",
-                  "CSS3",
-                  "Google Gemini API",
-                  "HTML5",
-                  "Web APIs",
+                  "React Native",
+                  "Expo Router",
+                  "TypeScript",
+                  "Zustand",
+                  "TailwindCSS",
+                  "NativeWind",
+                  "Appwrite",
+                  "Sentry",
+                  "MongoDB",
+                  "File-based Routing",
                 ].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300 hover:gradient-text hover:bg-white/20 hover:border-purple-400/50 transition-all duration-300 cursor-default"
+                    className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300 hover:gradient-text hover:bg-white/20 hover:border-orange-400/50 transition-all duration-300 cursor-default"
                   >
                     {tech}
                   </span>

@@ -20,7 +20,7 @@ const slideInRight = {
   animate: { opacity: 1, x: 0, transition: { duration: 0.8 } },
 };
 
-export default function SnapSummaryPage() {
+export default function BrainBlitzPage() {
   return (
     <div className="min-h-screen pt-20">
       <div className="max-w-6xl mx-auto px-4 py-8">
@@ -50,8 +50,8 @@ export default function SnapSummaryPage() {
           >
             <Card className="bg-white/5 border-white/10 overflow-hidden">
               <CardContent className="p-0">
-                <div className="h-64 md:h-96 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center">
-                  <div className="text-8xl text-white/40">🧩</div>
+                <div className="h-64 md:h-96 bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center">
+                  <div className="text-8xl text-white/40">🧠</div>
                 </div>
               </CardContent>
             </Card>
@@ -96,73 +96,83 @@ export default function SnapSummaryPage() {
               className="text-3xl md:text-4xl font-bold text-white"
               variants={fadeInUp}
             >
-              SnapSummary - Chrome Extension
+              🧠 BrainBlitz
             </motion.h1>
 
-            <motion.div className="space-y-6 text-gray-300" variants={fadeInUp}>
-              <p className="leading-relaxed text-lg">
-                SnapSummary is a{" "}
-                <span className="gradient-text font-semibold">
-                  Chrome extension
-                </span>{" "}
-                that instantly transforms any webpage into concise, readable
-                summaries with a single click, powered by{" "}
-                <span className="gradient-text">Google&apos;s Gemini AI</span>{" "}
-                technology.
+            <motion.div className="space-y-4 text-gray-300" variants={fadeInUp}>
+              <p className="leading-relaxed mb-6">
+                A comprehensive{" "}
+                <span className="gradient-text">React quiz application</span>{" "}
+                designed to test React.js knowledge with interactive learning
+                features.
               </p>
 
               <div className="space-y-6">
+                {/* Interactive Learning Platform */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
                     <span className="gradient-text">
-                      AI-Powered Content Extraction:
+                      Interactive Learning Platform
                     </span>{" "}
-                    Leverages{" "}
+                    with{" "}
                     <span className="gradient-text">
-                      Google&apos;s Gemini AI
+                      7 challenging questions
                     </span>{" "}
-                    to extract and analyze important content from articles, blog
-                    posts, and web pages with intelligent content recognition.
+                    focused on{" "}
+                    <span className="gradient-text">React.js concepts</span>,
+                    hooks, JSX, and{" "}
+                    <span className="gradient-text">state management</span>
                   </p>
                 </div>
 
+                {/* Advanced State Management */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
                     <span className="gradient-text">
-                      Customizable Summary Formats:
+                      Advanced State Management
                     </span>{" "}
-                    Choose between brief overviews, detailed summaries, or{" "}
+                    with{" "}
+                    <span className="gradient-text">user answer tracking</span>{" "}
+                    system categorizing{" "}
                     <span className="gradient-text">
-                      easy-to-scan bullet points
+                      correct, incorrect, and skipped
                     </span>{" "}
-                    tailored to your reading preferences and time constraints.
+                    responses with{" "}
+                    <span className="gradient-text">performance analytics</span>
                   </p>
                 </div>
 
+                {/* Real-time Timer Feature */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
-                    <span className="gradient-text">One-Click Simplicity:</span>{" "}
-                    Perfect for researchers, students, and{" "}
-                    <span className="gradient-text">busy professionals</span>{" "}
-                    who need to quickly understand web content without reading
-                    entire pages.
+                    <span className="gradient-text">
+                      Real-time Question Timer
+                    </span>{" "}
+                    with{" "}
+                    <span className="gradient-text">
+                      custom timer component
+                    </span>{" "}
+                    adding <span className="gradient-text">time pressure</span>{" "}
+                    to simulate{" "}
+                    <span className="gradient-text">interview conditions</span>
                   </p>
                 </div>
 
+                {/* Modern React Architecture */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
-                    <span className="gradient-text">Seamless Integration:</span>{" "}
-                    Built with{" "}
-                    <span className="gradient-text">Manifest V3</span>{" "}
-                    technology, featuring simple API key setup and delivering{" "}
                     <span className="gradient-text">
-                      intelligent web summaries
+                      Modern React Architecture
                     </span>{" "}
-                    whenever needed.
+                    using <span className="gradient-text">React 18</span>,{" "}
+                    <span className="gradient-text">functional components</span>
+                    , <span className="gradient-text">hooks</span>, and{" "}
+                    <span className="gradient-text">Vite</span> for optimized
+                    development
                   </p>
                 </div>
               </div>
@@ -174,17 +184,20 @@ export default function SnapSummaryPage() {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {[
+                  "React 18",
                   "JavaScript",
-                  "Chrome Extension",
-                  "Manifest V3",
-                  "CSS3",
-                  "Google Gemini API",
-                  "HTML5",
-                  "Web APIs",
+                  "Vite",
+                  "ESLint",
+                  "useState",
+                  "useCallback",
+                  "JSX",
+                  "Component Composition",
+                  "Functional Components",
+                  "Modern Hooks",
                 ].map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300 hover:gradient-text hover:bg-white/20 hover:border-purple-400/50 transition-all duration-300 cursor-default"
+                    className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm text-gray-300 hover:gradient-text hover:bg-white/20 hover:border-violet-400/50 transition-all duration-300 cursor-default"
                   >
                     {tech}
                   </span>

@@ -3,13 +3,7 @@
 import { motion, Variants } from "framer-motion";
 import { ReactNode } from "react";
 import Image from "next/image";
-import {
-  Github,
-  Linkedin,
-  Twitter,
-  Instagram,
-  ExternalLink,
-} from "lucide-react";
+import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import TypingAnimation from "@/components/typing-animation";
 import DiscordIcon from "@/components/icons/discord-icon";
@@ -486,7 +480,7 @@ export default function Home() {
 
             {/* Project 2 */}
             <motion.div variants={fadeInUp} className="w-full">
-              <Link href="/projects/task-manager">
+              <Link href="/projects/streamtalk">
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-green-500/25 hover:border-green-500/30">
                   <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
                     {/* Project Thumbnail */}
@@ -546,18 +540,18 @@ export default function Home() {
 
             {/* Project 5 */}
             <motion.div variants={fadeInUp} className="w-full">
-              <Link href="/projects/cloudops">
+              <Link href="/projects/splitnow">
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-cyan-500/25 hover:border-cyan-500/30">
                   <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
                     {/* Project Thumbnail */}
                     <div className="h-40 w-40 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-cyan-500/30 group-hover:to-blue-500/30 transition-all duration-300">
                       <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
-                        ☁️
+                        💰
                       </div>
                     </div>
 
                     <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
-                      CloudOps
+                      SplitNow
                     </h3>
                   </CardContent>
                 </Card>
@@ -566,24 +560,197 @@ export default function Home() {
 
             {/* Project 6 */}
             <motion.div variants={fadeInUp} className="w-full">
-              <Link href="/projects/aiwriter">
+              <Link href="/projects/lumix">
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-pink-500/25 hover:border-pink-500/30">
                   <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
                     {/* Project Thumbnail */}
                     <div className="h-40 w-40 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-pink-500/30 group-hover:to-purple-500/30 transition-all duration-300">
                       <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
-                        ✍️
+                        🎬
                       </div>
                     </div>
 
                     <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
-                      AI Writer
+                      Lumix
+                    </h3>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* Project 7 */}
+            <motion.div variants={fadeInUp} className="w-full">
+              <Link href="/projects/feastfly">
+                <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-orange-500/25 hover:border-orange-500/30">
+                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                    {/* Project Thumbnail */}
+                    <div className="h-40 w-40 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-orange-500/30 group-hover:to-red-500/30 transition-all duration-300">
+                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                        �
+                      </div>
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                      FeastFly
+                    </h3>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* Project 8 */}
+            <motion.div variants={fadeInUp} className="w-full">
+              <Link href="/projects/subscription-tracker">
+                <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-emerald-500/25 hover:border-emerald-500/30">
+                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                    {/* Project Thumbnail */}
+                    <div className="h-40 w-40 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-emerald-500/30 group-hover:to-teal-500/30 transition-all duration-300">
+                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                        �
+                      </div>
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                      Subscription Tracker System
+                    </h3>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+
+            {/* Project 9 */}
+            <motion.div variants={fadeInUp} className="w-full">
+              <Link href="/projects/brainblitz">
+                <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-violet-500/25 hover:border-violet-500/30">
+                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                    {/* Project Thumbnail */}
+                    <div className="h-40 w-40 bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-violet-500/30 group-hover:to-fuchsia-500/30 transition-all duration-300">
+                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                        �
+                      </div>
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                      BrainBlitz
                     </h3>
                   </CardContent>
                 </Card>
               </Link>
             </motion.div>
           </motion.div>
+        </div>
+      </AnimatedSection>
+
+      {/* Resume & Experience Section */}
+      <AnimatedSection
+        id="resume-experience"
+        className="min-h-screen flex items-center justify-center px-4"
+        variants={staggerContainer}
+      >
+        <div className="max-w-7xl mx-auto w-full">
+          <motion.h2
+            className="text-3xl md:text-5xl font-bold text-white mb-16 text-center"
+            variants={fadeInUp}
+          >
+            Resume & Experience
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 gap-16">
+            {/* Left Side - Resume */}
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={slideInLeft}
+              className="space-y-8"
+            >
+              <div className="text-center">
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-8">
+                  Download Resume
+                </h3>
+                
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
+                  <div className="flex flex-col items-center space-y-6">
+                    <div className="w-20 h-20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300">
+                      <div className="text-3xl text-white/60 group-hover:text-white/80 transition-all duration-300">
+                        📄
+                      </div>
+                    </div>
+                    
+                    <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-3 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 font-medium text-lg">
+                      Download PDF
+                    </button>
+                    
+                    <p className="text-gray-300 text-center">
+                      Get my complete resume with detailed information about my skills, projects, and achievements.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Side - Work Experience */}
+            <motion.div
+              initial="initial"
+              animate="animate"
+              variants={slideInRight}
+              className="space-y-8"
+            >
+              <div className="text-center mb-8">
+                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                  Work Experience
+                </h3>
+              </div>
+              
+              <div className="space-y-6">
+                <motion.div
+                  className="bg-white/5 border border-white/10 rounded-lg p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                  variants={fadeInUp}
+                >
+                  <h4 className="text-xl font-semibold text-white mb-2">
+                    Full Stack Developer
+                  </h4>
+                  <p className="text-blue-400 mb-2">Personal Projects • 2024</p>
+                  <p className="text-gray-300 leading-relaxed">
+                    Developed multiple end-to-end applications including{" "}
+                    <span className="gradient-text">FinTrack</span>,{" "}
+                    <span className="gradient-text">StreamTalk</span>, and{" "}
+                    <span className="gradient-text">Viducate</span> using modern tech stacks.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  className="bg-white/5 border border-white/10 rounded-lg p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                  variants={fadeInUp}
+                >
+                  <h4 className="text-xl font-semibold text-white mb-2">
+                    React Native Developer
+                  </h4>
+                  <p className="text-green-400 mb-2">Mobile Projects • 2024</p>
+                  <p className="text-gray-300 leading-relaxed">
+                    Built cross-platform mobile applications with focus on{" "}
+                    <span className="gradient-text">user experience</span> and{" "}
+                    <span className="gradient-text">performance optimization</span>.
+                  </p>
+                </motion.div>
+
+                <motion.div
+                  className="bg-white/5 border border-white/10 rounded-lg p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                  variants={fadeInUp}
+                >
+                  <h4 className="text-xl font-semibold text-white mb-2">
+                    DevOps Engineer
+                  </h4>
+                  <p className="text-purple-400 mb-2">Infrastructure Projects • 2024</p>
+                  <p className="text-gray-300 leading-relaxed">
+                    Implemented{" "}
+                    <span className="gradient-text">CI/CD pipelines</span>,{" "}
+                    <span className="gradient-text">containerization</span>, and{" "}
+                    <span className="gradient-text">cloud infrastructure</span> for scalable applications.
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </AnimatedSection>
 

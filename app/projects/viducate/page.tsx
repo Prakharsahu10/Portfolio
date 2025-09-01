@@ -46,6 +46,7 @@ export default function ViducatePage() {
             initial="initial"
             animate="animate"
             variants={slideInLeft}
+            className="space-y-6"
           >
             <Card className="bg-white/5 border-white/10 overflow-hidden">
               <CardContent className="p-0">
@@ -54,6 +55,34 @@ export default function ViducatePage() {
                 </div>
               </CardContent>
             </Card>
+
+            {/* Links */}
+            <motion.div
+              className="flex justify-center space-x-6"
+              variants={fadeInUp}
+            >
+              <motion.a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-400 transition-all duration-300 group"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Github size={36} className="group-hover:animate-pulse" />
+              </motion.a>
+
+              <motion.a
+                href="https://example.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-green-400 transition-all duration-300 group"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <ExternalLink size={36} className="group-hover:animate-pulse" />
+              </motion.a>
+            </motion.div>
           </motion.div>
 
           {/* Project Details */}
@@ -163,33 +192,6 @@ export default function ViducatePage() {
                   </span>
                 ))}
               </div>
-            </motion.div>
-
-            {/* Links */}
-            <motion.div className="flex space-x-6" variants={fadeInUp}>
-              <motion.a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-white hover:text-blue-400 transition-all duration-300 group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Github size={24} className="group-hover:animate-pulse" />
-                <span className="font-medium">View Code</span>
-              </motion.a>
-
-              <motion.a
-                href="https://example.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-white hover:text-green-400 transition-all duration-300 group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ExternalLink size={24} className="group-hover:animate-pulse" />
-                <span className="font-medium">Live Demo</span>
-              </motion.a>
             </motion.div>
           </motion.div>
         </div>
