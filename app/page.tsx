@@ -388,42 +388,42 @@ export default function Home() {
             variants={staggerContainer}
           >
             {[
-              { name: "C", icon: "/assets/languages/c.svg" },
-              { name: "C++", icon: "/assets/languages/cpp.svg" },
-              { name: "HTML5", icon: "/assets/languages/html.svg" },
-              { name: "CSS3", icon: "/assets/languages/css.svg" },
-              { name: "Bootstrap", icon: "/assets/frameworks/bootstrap.svg" },
-              { name: "JavaScript", icon: "/assets/languages/javascript.svg" },
-              { name: "TypeScript", icon: "/assets/languages/typescript.svg" },
-              { name: "TailwindCSS", icon: "/assets/frameworks/tailwind.svg" },
-              { name: "Next.js", icon: "/assets/frameworks/nextjs.svg" },
-              { name: "React", icon: "/assets/frameworks/react.svg" },
-              { name: "Node.js", icon: "/assets/frameworks/nodejs.svg" },
-              { name: "Express.js", icon: "/assets/frameworks/express.svg" },
-              { name: "Socket.io", icon: "/assets/frameworks/socketio.svg" },
-              { name: "Python", icon: "/assets/languages/python.svg" },
+              { name: "C", icon: "/assets/c.svg" },
+              { name: "C++", icon: "/assets/cpp.svg" },
+              { name: "HTML5", icon: "/assets/html.svg" },
+              { name: "CSS3", icon: "/assets/css.svg" },
+              { name: "Bootstrap", icon: "/assets/bootstrap.svg" },
+              { name: "JavaScript", icon: "/assets/javascript.svg" },
+              { name: "TypeScript", icon: "/assets/typescript.svg" },
+              { name: "TailwindCSS", icon: "/assets/tailwind.svg" },
+              { name: "Next.js", icon: "/assets/nextjs.svg" },
+              { name: "React", icon: "/assets/react.svg" },
+              { name: "Node.js", icon: "/assets/nodejs.svg" },
+              { name: "Express.js", icon: "/assets/express.svg" },
+              { name: "Socket.io", icon: "/assets/socketio.svg" },
+              { name: "Python", icon: "/assets/python.svg" },
               {
                 name: "React Native",
-                icon: "/assets/frameworks/react-native.svg",
+                icon: "/assets/react-native.svg",
               },
-              { name: "Expo", icon: "/assets/frameworks/expo.svg" },
-              { name: "MongoDB", icon: "/assets/skills/mongodb.svg" },
-              { name: "MySQL", icon: "/assets/skills/mysql.svg" },
-              { name: "Prisma", icon: "/assets/skills/prisma.svg" },
-              { name: "Firebase", icon: "/assets/skills/firebase.svg" },
-              { name: "Docker", icon: "/assets/skills/docker.svg" },
-              { name: "Kubernetes", icon: "/assets/skills/kubernetes.svg" },
-              { name: "Jenkins", icon: "/assets/skills/jenkins.svg" },
-              { name: "Terraform", icon: "/assets/skills/terraform.svg" },
-              { name: "GitHub", icon: "/assets/skills/github.svg" },
+              { name: "Expo", icon: "/assets/expo.svg" },
+              { name: "MongoDB", icon: "/assets/mongodb.svg" },
+              { name: "MySQL", icon: "/assets/mysql.svg" },
+              { name: "Prisma", icon: "/assets/prisma.svg" },
+              { name: "Firebase", icon: "/assets/firebase.svg" },
+              { name: "Docker", icon: "/assets/docker.svg" },
+              { name: "Kubernetes", icon: "/assets/kubernetes.svg" },
+              { name: "Jenkins", icon: "/assets/jenkins.svg" },
+              { name: "Terraform", icon: "/assets/terraform.svg" },
+              { name: "GitHub", icon: "/assets/github.svg" },
               {
                 name: "GitHub Actions",
-                icon: "/assets/skills/github-actions.svg",
+                icon: "/assets/github-actions.svg",
               },
-              { name: "Git", icon: "/assets/skills/git.svg" },
-              { name: "Bash", icon: "/assets/skills/bash.svg" },
-              { name: "AWS", icon: "/assets/skills/aws.svg" },
-              { name: "PostMan", icon: "/assets/skills/postman.svg" },
+              { name: "Git", icon: "/assets/git.svg" },
+              { name: "Bash", icon: "/assets/bash.svg" },
+              { name: "AWS", icon: "/assets/aws.svg" },
+              { name: "PostMan", icon: "/assets/postman.svg" },
             ].map((item) => (
               <motion.div key={item.name} variants={fadeInUp}>
                 <Card className="bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 group cursor-pointer h-40">
@@ -435,6 +435,7 @@ export default function Home() {
                         width={80}
                         height={80}
                         className="object-contain"
+                        unoptimized
                       />
                     </div>
                     <h4 className="text-white font-medium text-center group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-purple-400 group-hover:to-pink-400 group-hover:bg-clip-text transition-all duration-300 text-sm">
