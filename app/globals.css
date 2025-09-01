@@ -130,4 +130,17 @@
   .gradient-hover {
     @apply hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent;
   }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) skewX(-45deg);
+    }
+    100% {
+      transform: translateX(200%) skewX(-45deg);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 0.8s ease-in-out;
+  }
 }
