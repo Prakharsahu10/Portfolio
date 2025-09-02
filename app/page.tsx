@@ -454,17 +454,33 @@ export default function Home() {
             <motion.div variants={fadeInUp} className="w-full">
               <Link href="/projects/fintrack">
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-blue-500/25 hover:border-blue-500/30">
-                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                  <CardContent className="p-0 flex flex-col h-full w-full">
                     {/* Project Thumbnail */}
-                    <div className="h-40 w-40 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300">
-                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                    <div className="flex-1 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300 overflow-hidden relative">
+                      <Image
+                        src="/projects/fintrack.png"
+                        alt="FinTrack Project Screenshot"
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        onError={(e) => {
+                          const target = e.currentTarget as HTMLImageElement;
+                          const fallback =
+                            target.nextElementSibling as HTMLElement;
+                          target.style.display = "none";
+                          if (fallback) fallback.style.display = "flex";
+                        }}
+                      />
+                      <div className="w-full h-full hidden items-center justify-center text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
                         🚀
                       </div>
                     </div>
 
-                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
-                      FinTrack
-                    </h3>
+                    <div className="p-4">
+                      <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                        FinTrack
+                      </h3>
+                    </div>
                   </CardContent>
                 </Card>
               </Link>
@@ -474,17 +490,33 @@ export default function Home() {
             <motion.div variants={fadeInUp} className="w-full">
               <Link href="/projects/streamtalk">
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-green-500/25 hover:border-green-500/30">
-                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                  <CardContent className="p-0 flex flex-col h-full w-full">
                     {/* Project Thumbnail */}
-                    <div className="h-40 w-40 bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-green-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                    <div className="flex-1 bg-gradient-to-br from-green-500/20 to-blue-500/20 flex items-center justify-center group-hover:from-green-500/30 group-hover:to-blue-500/30 transition-all duration-300 overflow-hidden relative">
+                      <Image
+                        src="/projects/streamtalk.png"
+                        alt="StreamTalk Project Screenshot"
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                        onError={(e) => {
+                          const target = e.currentTarget as HTMLImageElement;
+                          const fallback =
+                            target.nextElementSibling as HTMLElement;
+                          target.style.display = "none";
+                          if (fallback) fallback.style.display = "flex";
+                        }}
+                      />
+                      <div className="w-full h-full hidden items-center justify-center text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
                         📱
                       </div>
                     </div>
 
-                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
-                      StreamTalk
-                    </h3>
+                    <div className="p-4">
+                      <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                        StreamTalk
+                      </h3>
+                    </div>
                   </CardContent>
                 </Card>
               </Link>
@@ -494,17 +526,33 @@ export default function Home() {
             <motion.div variants={fadeInUp} className="w-full">
               <Link href="/projects/viducate">
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-purple-500/25 hover:border-purple-500/30">
-                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                  <CardContent className="p-0 flex flex-col h-full w-full">
                     {/* Project Thumbnail */}
-                    <div className="h-40 w-40 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
-                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                    <div className="flex-1 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300 overflow-hidden relative">
+                      <Image
+                        src="/projects/viducate.png"
+                        alt="Viducate Project Screenshot"
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        onError={(e) => {
+                          const target = e.currentTarget as HTMLImageElement;
+                          const fallback =
+                            target.nextElementSibling as HTMLElement;
+                          target.style.display = "none";
+                          if (fallback) fallback.style.display = "flex";
+                        }}
+                      />
+                      <div className="w-full h-full hidden items-center justify-center text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
                         ⚙️
                       </div>
                     </div>
 
-                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
-                      Viducate
-                    </h3>
+                    <div className="p-4">
+                      <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                        Viducate
+                      </h3>
+                    </div>
                   </CardContent>
                 </Card>
               </Link>
@@ -514,17 +562,19 @@ export default function Home() {
             <motion.div variants={fadeInUp} className="w-full">
               <Link href="/projects/snapsummary">
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-orange-500/25 hover:border-orange-500/30">
-                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                  <CardContent className="p-0 flex flex-col h-full w-full">
                     {/* Project Thumbnail */}
-                    <div className="h-40 w-40 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-orange-500/30 group-hover:to-red-500/30 transition-all duration-300">
+                    <div className="flex-1 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center group-hover:from-orange-500/30 group-hover:to-red-500/30 transition-all duration-300">
                       <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
                         🧩
                       </div>
                     </div>
 
-                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
-                      SnapSummary - Chrome Extension
-                    </h3>
+                    <div className="p-4">
+                      <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                        SnapSummary - Chrome Extension
+                      </h3>
+                    </div>
                   </CardContent>
                 </Card>
               </Link>
@@ -534,17 +584,35 @@ export default function Home() {
             <motion.div variants={fadeInUp} className="w-full">
               <Link href="/projects/splitnow">
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-cyan-500/25 hover:border-cyan-500/30">
-                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                  <CardContent className="p-0 flex flex-col h-full w-full">
                     {/* Project Thumbnail */}
-                    <div className="h-40 w-40 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-cyan-500/30 group-hover:to-blue-500/30 transition-all duration-300">
-                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                    <div className="flex-1 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center group-hover:from-cyan-500/30 group-hover:to-blue-500/30 transition-all duration-300 overflow-hidden relative">
+                      <Image
+                        src="/projects/splitnow.png"
+                        alt="SplitNow Project Screenshot"
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        onError={(e) => {
+                          const target = e.currentTarget as HTMLImageElement;
+                          target.style.display = "none";
+                          const fallback =
+                            target.nextElementSibling as HTMLElement;
+                          if (fallback) {
+                            fallback.style.display = "flex";
+                          }
+                        }}
+                      />
+                      <div className="w-full h-full hidden items-center justify-center text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
                         💰
                       </div>
                     </div>
 
-                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
-                      SplitNow
-                    </h3>
+                    <div className="p-4">
+                      <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                        SplitNow
+                      </h3>
+                    </div>
                   </CardContent>
                 </Card>
               </Link>
@@ -554,17 +622,33 @@ export default function Home() {
             <motion.div variants={fadeInUp} className="w-full">
               <Link href="/projects/lumix">
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-pink-500/25 hover:border-pink-500/30">
-                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                  <CardContent className="p-0 flex flex-col h-full w-full">
                     {/* Project Thumbnail */}
-                    <div className="h-40 w-40 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-pink-500/30 group-hover:to-purple-500/30 transition-all duration-300">
-                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                    <div className="flex-1 bg-gradient-to-br from-pink-500/20 to-purple-500/20 flex items-center justify-center group-hover:from-pink-500/30 group-hover:to-purple-500/30 transition-all duration-300 overflow-hidden relative">
+                      <Image
+                        src="/projects/lumix.jpg"
+                        alt="Lumix Project Screenshot"
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        onError={(e) => {
+                          const target = e.currentTarget as HTMLImageElement;
+                          const fallback =
+                            target.nextElementSibling as HTMLElement;
+                          target.style.display = "none";
+                          if (fallback) fallback.style.display = "flex";
+                        }}
+                      />
+                      <div className="w-full h-full hidden items-center justify-center text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
                         🎬
                       </div>
                     </div>
 
-                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
-                      Lumix
-                    </h3>
+                    <div className="p-4">
+                      <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                        Lumix
+                      </h3>
+                    </div>
                   </CardContent>
                 </Card>
               </Link>
@@ -574,17 +658,33 @@ export default function Home() {
             <motion.div variants={fadeInUp} className="w-full">
               <Link href="/projects/feastfly">
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-orange-500/25 hover:border-orange-500/30">
-                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                  <CardContent className="p-0 flex flex-col h-full w-full">
                     {/* Project Thumbnail */}
-                    <div className="h-40 w-40 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-orange-500/30 group-hover:to-red-500/30 transition-all duration-300">
-                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
-                        �
+                    <div className="flex-1 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center group-hover:from-orange-500/30 group-hover:to-red-500/30 transition-all duration-300 overflow-hidden relative">
+                      <Image
+                        src="/projects/feastfly.jpg"
+                        alt="FeastFly Project Screenshot"
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        onError={(e) => {
+                          const target = e.currentTarget as HTMLImageElement;
+                          const fallback =
+                            target.nextElementSibling as HTMLElement;
+                          target.style.display = "none";
+                          if (fallback) fallback.style.display = "flex";
+                        }}
+                      />
+                      <div className="w-full h-full hidden items-center justify-center text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                        🍽️
                       </div>
                     </div>
 
-                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
-                      FeastFly
-                    </h3>
+                    <div className="p-4">
+                      <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                        FeastFly
+                      </h3>
+                    </div>
                   </CardContent>
                 </Card>
               </Link>
@@ -594,17 +694,19 @@ export default function Home() {
             <motion.div variants={fadeInUp} className="w-full">
               <Link href="/projects/subscription-tracker">
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-emerald-500/25 hover:border-emerald-500/30">
-                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                  <CardContent className="p-0 flex flex-col h-full w-full">
                     {/* Project Thumbnail */}
-                    <div className="h-40 w-40 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-emerald-500/30 group-hover:to-teal-500/30 transition-all duration-300">
+                    <div className="flex-1 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center group-hover:from-emerald-500/30 group-hover:to-teal-500/30 transition-all duration-300">
                       <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
-                        �
+                        📊
                       </div>
                     </div>
 
-                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
-                      Subscription Tracker System
-                    </h3>
+                    <div className="p-4">
+                      <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                        Subscription Tracker System
+                      </h3>
+                    </div>
                   </CardContent>
                 </Card>
               </Link>
@@ -614,17 +716,33 @@ export default function Home() {
             <motion.div variants={fadeInUp} className="w-full">
               <Link href="/projects/brainblitz">
                 <Card className="bg-white/5 border-white/10 overflow-hidden hover:bg-white/10 hover:scale-105 transition-all duration-300 cursor-pointer group w-full h-72 hover:shadow-2xl hover:shadow-violet-500/25 hover:border-violet-500/30">
-                  <CardContent className="p-6 flex flex-col justify-center items-center h-full w-full">
+                  <CardContent className="p-0 flex flex-col h-full w-full">
                     {/* Project Thumbnail */}
-                    <div className="h-40 w-40 bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:from-violet-500/30 group-hover:to-fuchsia-500/30 transition-all duration-300">
-                      <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
-                        �
+                    <div className="flex-1 bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center group-hover:from-violet-500/30 group-hover:to-fuchsia-500/30 transition-all duration-300 overflow-hidden relative">
+                      <Image
+                        src="/projects/brainblitz.png"
+                        alt="BrainBlitz Project Screenshot"
+                        width={400}
+                        height={300}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        onError={(e) => {
+                          const target = e.currentTarget as HTMLImageElement;
+                          const fallback =
+                            target.nextElementSibling as HTMLElement;
+                          target.style.display = "none";
+                          if (fallback) fallback.style.display = "flex";
+                        }}
+                      />
+                      <div className="w-full h-full hidden items-center justify-center text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                        🧠
                       </div>
                     </div>
 
-                    <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
-                      BrainBlitz
-                    </h3>
+                    <div className="p-4">
+                      <h3 className="text-3xl font-bold text-white text-center group-hover:gradient-text transition-all duration-300">
+                        BrainBlitz
+                      </h3>
+                    </div>
                   </CardContent>
                 </Card>
               </Link>
@@ -985,11 +1103,18 @@ export default function Home() {
                 <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-blue-500/25">
                   <div className="aspect-[4/3] rounded-xl overflow-hidden bg-white/5 border border-white/10">
                     <Image
-                      src="/achievements/ieee-finalist.jpg"
+                      src="/achievements/ieeeyesist.jpg"
                       alt="IEEE YESIST12 International Finalist Achievement"
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       style={{ objectFit: "cover" }}
+                      onError={(e) => {
+                        const target = e.currentTarget as HTMLImageElement;
+                        const fallback =
+                          target.nextElementSibling as HTMLElement;
+                        target.style.display = "none";
+                        if (fallback) fallback.style.display = "flex";
+                      }}
                     />
                     {/* Fallback when image fails to load */}
                     <div
@@ -1158,11 +1283,18 @@ export default function Home() {
                 <div className="bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-green-500/25">
                   <div className="aspect-[4/3] rounded-xl overflow-hidden bg-white/5 border border-white/10">
                     <Image
-                      src="/achievements/best-project-award.jpg"
+                      src="/achievements/yesistprelims.jpg"
                       alt="Best Project Award IEEE YESIST12 Prelims"
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       style={{ objectFit: "cover" }}
+                      onError={(e) => {
+                        const target = e.currentTarget as HTMLImageElement;
+                        const fallback =
+                          target.nextElementSibling as HTMLElement;
+                        target.style.display = "none";
+                        if (fallback) fallback.style.display = "flex";
+                      }}
                     />
                     {/* Fallback when image fails to load */}
                     <div

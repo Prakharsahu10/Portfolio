@@ -43,12 +43,52 @@ export default function ContactForm() {
     setSubmitStatus("idle");
 
     try {
-      // Replace these with your actual EmailJS credentials
-      const result = await emailjs.sendForm(
-        "YOUR_SERVICE_ID", // You'll need to replace this
-        "YOUR_TEMPLATE_ID", // You'll need to replace this
-        form.current,
-        "YOUR_PUBLIC_KEY" // You'll need to replace this
+      // Get EmailJS credentials from environment variables
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      console.log("EmailJS Debug Info:", {
+        serviceId: serviceId ? "✓ Set" : "✗ Missing",
+        templateId: templateId ? "✓ Set" : "✗ Missing",
+        publicKey: publicKey ? "✓ Set" : "✗ Missing",
+        serviceIdValue: serviceId,
+        templateIdValue: templateId,
+        publicKeyValue: publicKey,
+      });
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error(
+          `EmailJS credentials missing: ${!serviceId ? "Service ID " : ""}${
+            !templateId ? "Template ID " : ""
+          }${!publicKey ? "Public Key" : ""}`
+        );
+      }
+
+      console.log("Attempting to send email with form data:", formData);
+
+      // Initialize EmailJS if not already done
+      if (publicKey) {
+        emailjs.init(publicKey);
+        console.log("EmailJS initialized with public key");
+      }
+
+      // Use emailjs.send method for better control and debugging
+      const templateParams = {
+        user_name: formData.user_name,
+        user_email: formData.user_email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: "prakharsahu1011@gmail.com", // Your email where you want to receive messages
+      };
+
+      console.log("Sending with template params:", templateParams);
+
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
       );
 
       console.log("Email sent successfully:", result.text);
@@ -62,7 +102,22 @@ export default function ContactForm() {
         message: "",
       });
     } catch (error) {
-      console.error("Failed to send email:", error);
+      console.error("Failed to send email - Detailed error:", {
+        error,
+        errorMessage: error instanceof Error ? error.message : "Unknown error",
+        errorStack: error instanceof Error ? error.stack : "No stack trace",
+        errorType: typeof error,
+        errorKeys:
+          error && typeof error === "object"
+            ? Object.keys(error)
+            : "Not an object",
+      });
+
+      // Log the specific EmailJS error if it exists
+      if (error && typeof error === "object" && "text" in error) {
+        console.error("EmailJS specific error:", error.text);
+      }
+
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);

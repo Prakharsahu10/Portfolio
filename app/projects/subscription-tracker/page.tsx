@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink, ArrowLeft } from "lucide-react";
+import { Github, ArrowLeft } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 
@@ -50,7 +50,7 @@ export default function SubscriptionTrackerPage() {
           >
             <Card className="bg-white/5 border-white/10 overflow-hidden">
               <CardContent className="p-0">
-                <div className="h-64 md:h-96 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center">
+                <div className="h-80 md:h-[500px] bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center">
                   <div className="text-8xl text-white/40">📊</div>
                 </div>
               </CardContent>
@@ -62,7 +62,7 @@ export default function SubscriptionTrackerPage() {
               variants={fadeInUp}
             >
               <motion.a
-                href="https://github.com"
+                href="https://github.com/Prakharsahu10/Subscription_Tracker"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-400 transition-all duration-300 group"
@@ -70,17 +70,6 @@ export default function SubscriptionTrackerPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Github size={36} className="group-hover:animate-pulse" />
-              </motion.a>
-
-              <motion.a
-                href="https://example.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-green-400 transition-all duration-300 group"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <ExternalLink size={36} className="group-hover:animate-pulse" />
               </motion.a>
             </motion.div>
           </motion.div>

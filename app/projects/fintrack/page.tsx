@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, ExternalLink, ArrowLeft } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
 import Link from "next/link";
 
 const fadeInUp = {
@@ -50,16 +51,35 @@ export default function FinTrackPage() {
           >
             <Card className="bg-white/5 border-white/10 overflow-hidden">
               <CardContent className="p-0">
-                <div className="h-64 md:h-96 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-                  <div className="text-8xl text-white/40">🚀</div>
+                <div className="aspect-[4/3] bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center relative overflow-hidden">
+                  <Image
+                    src="/projects/fintrack.png"
+                    alt="FinTrack Project Screenshot"
+                    fill
+                    className="object-contain hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.currentTarget as HTMLImageElement;
+                      target.style.display = "none";
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      if (fallback) {
+                        fallback.style.display = "flex";
+                      }
+                    }}
+                  />
+                  <div className="hidden w-full h-full items-center justify-center text-8xl text-white/40">
+                    🚀
+                  </div>
                 </div>
               </CardContent>
             </Card>
-            
+
             {/* Links */}
-            <motion.div className="flex justify-center space-x-6" variants={fadeInUp}>
+            <motion.div
+              className="flex justify-center space-x-6"
+              variants={fadeInUp}
+            >
               <motion.a
-                href="https://github.com"
+                href="https://github.com/Prakharsahu10/FinTrack"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-400 transition-all duration-300 group"
@@ -70,7 +90,7 @@ export default function FinTrackPage() {
               </motion.a>
 
               <motion.a
-                href="https://example.com"
+                href="https://fin-track-mocha.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-green-400 transition-all duration-300 group"
