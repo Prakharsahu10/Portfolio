@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import Image from "next/image";
 import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
@@ -59,18 +59,617 @@ const AnimatedSection = ({
   </motion.section>
 );
 
+// Client-side particle component to avoid hydration mismatch
+const ParticleField = () => {
+  const [particles, setParticles] = useState<
+    Array<{
+      left: string;
+      top: string;
+      yRange: number[];
+      duration: number;
+      delay: number;
+    }>
+  >([]);
+
+  useEffect(() => {
+    const particleData = [...Array(12)].map(() => ({
+      left: `${15 + Math.random() * 70}%`,
+      top: `${20 + Math.random() * 60}%`,
+      yRange: [0, -100 - Math.random() * 50, 100 + Math.random() * 50, 0],
+      duration: 6 + Math.random() * 4,
+      delay: Math.random() * 3,
+    }));
+    setParticles(particleData);
+  }, []);
+
+  if (particles.length === 0) return null;
+
+  return (
+    <>
+      {particles.map((particle, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-2 h-2 bg-gradient-to-r from-blue-400/70 to-purple-400/70 rounded-full shadow-md shadow-blue-400/40"
+          style={{
+            left: particle.left,
+            top: particle.top,
+          }}
+          animate={{
+            y: particle.yRange,
+            opacity: [0, 1, 0.6, 0],
+            scale: [0.5, 1.5, 1, 0.5],
+          }}
+          transition={{
+            duration: particle.duration,
+            repeat: Infinity,
+            delay: particle.delay,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </>
+  );
+};
+
+// Environmental Effects Component
+const EnvironmentalEffects = () => {
+  const [stars, setStars] = useState<
+    Array<{
+      left: string;
+      top: string;
+      duration: number;
+      delay: number;
+    }>
+  >([]);
+
+  const [dustParticles, setDustParticles] = useState<
+    Array<{
+      left: string;
+      top: string;
+      duration: number;
+      delay: number;
+      yRange: number[];
+      xRange: number[];
+    }>
+  >([]);
+
+  useEffect(() => {
+    // Generate star positions
+    const starData = [...Array(50)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: 2 + Math.random() * 3,
+      delay: Math.random() * 5,
+    }));
+    setStars(starData);
+
+    // Generate dust particle data
+    const dustData = [...Array(20)].map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: 8 + Math.random() * 6,
+      delay: Math.random() * 8,
+      yRange: [0, -200 - Math.random() * 300, -400 - Math.random() * 200],
+      xRange: [0, (Math.random() - 0.5) * 100, (Math.random() - 0.5) * 150],
+    }));
+    setDustParticles(dustData);
+  }, []);
+
+  if (stars.length === 0 || dustParticles.length === 0) return null;
+
+  return (
+    <>
+      {/* Starfield Animation */}
+      {stars.map((star, i) => (
+        <motion.div
+          key={`star-${i}`}
+          className="absolute w-1 h-1 bg-white rounded-full"
+          style={{
+            left: star.left,
+            top: star.top,
+          }}
+          animate={{
+            opacity: [0, 1, 0],
+            scale: [0.5, 1.2, 0.5],
+          }}
+          transition={{
+            duration: star.duration,
+            repeat: Infinity,
+            delay: star.delay,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+
+      {/* Floating Dust Particles */}
+      {dustParticles.map((particle, i) => (
+        <motion.div
+          key={`dust-${i}`}
+          className="absolute w-0.5 h-0.5 bg-white/30 rounded-full"
+          style={{
+            left: particle.left,
+            top: particle.top,
+          }}
+          animate={{
+            y: particle.yRange,
+            x: particle.xRange,
+            opacity: [0, 0.6, 0],
+            scale: [0.5, 1, 0.8, 0],
+          }}
+          transition={{
+            duration: particle.duration,
+            repeat: Infinity,
+            delay: particle.delay,
+            ease: "easeOut",
+          }}
+        />
+      ))}
+    </>
+  );
+};
+
 export default function Home() {
+  // Mouse tracking state
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <div className="pt-16">
       {/* Home Section */}
       <motion.section
         id="home"
-        className="min-h-screen flex items-center justify-center px-4"
+        className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden"
         initial="initial"
         animate="animate"
         variants={staggerContainer}
       >
-        <div className="text-center space-y-6">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          {/* Primary gradient orbs - More visible */}
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/25 to-purple-500/25 rounded-full blur-3xl"
+            animate={{
+              x: [0, 50, 0],
+              y: [0, -30, 0],
+              scale: [1, 1.1, 1],
+              opacity: [0.6, 0.9, 0.6],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
+            animate={{
+              x: [0, -40, 0],
+              y: [0, 25, 0],
+              scale: [1.1, 1, 1.1],
+              opacity: [0.5, 0.8, 0.5],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2,
+            }}
+          />
+
+          {/* Additional ambient orbs - More visible */}
+          <motion.div
+            className="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-to-r from-cyan-400/18 to-blue-500/18 rounded-full blur-3xl"
+            animate={{
+              x: [0, 30, -20, 0],
+              y: [0, -40, 20, 0],
+              scale: [0.8, 1.2, 0.9, 0.8],
+              opacity: [0.7, 0.3, 0.6, 0.7],
+            }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 4,
+            }}
+          />
+
+          {/* Enhanced grid pattern */}
+          <motion.div
+            className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:60px_60px]"
+            style={{
+              maskImage:
+                "radial-gradient(ellipse 60% 60% at 50% 50%, #000 40%, transparent 70%)",
+            }}
+            animate={{
+              backgroundPosition: ["0px 0px", "60px 60px", "0px 0px"],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+
+          {/* More visible floating geometric shapes */}
+          <motion.div
+            className="absolute top-1/3 left-1/6 w-4 h-4 bg-blue-400/60 rotate-45 shadow-lg shadow-blue-400/30"
+            animate={{
+              y: [0, -80, 0],
+              opacity: [0.6, 1, 0.6],
+              rotate: [45, 225, 45],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/3 right-1/6 w-5 h-5 border-2 border-purple-400/60 rounded-full shadow-lg shadow-purple-400/30"
+            animate={{
+              y: [0, 60, 0],
+              x: [0, 20, 0],
+              opacity: [0.7, 0.4, 0.7],
+              scale: [1, 1.3, 1],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1,
+            }}
+          />
+          <motion.div
+            className="absolute top-2/3 left-2/3 w-3 h-10 bg-gradient-to-b from-pink-400/50 to-transparent shadow-lg shadow-pink-400/30"
+            animate={{
+              rotate: [0, 360],
+              opacity: [0.7, 1, 0.7],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 3,
+            }}
+          />
+
+          {/* More visible particle field */}
+          <ParticleField />
+
+          {/* Mouse-reactive gradient orbs */}
+          <motion.div
+            className="absolute w-32 h-32 bg-gradient-to-r from-cyan-400/30 to-blue-500/30 rounded-full blur-2xl pointer-events-none"
+            animate={{
+              x: mousePosition.x * 3,
+              y: mousePosition.y * 2,
+              scale: [0.8, 1.2, 0.8],
+            }}
+            transition={{
+              x: { type: "spring", damping: 20, stiffness: 50 },
+              y: { type: "spring", damping: 20, stiffness: 50 },
+              scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+            }}
+          />
+
+          <motion.div
+            className="absolute w-24 h-24 bg-gradient-to-r from-purple-400/25 to-pink-500/25 rounded-full blur-2xl pointer-events-none"
+            animate={{
+              x: mousePosition.x * -2,
+              y: mousePosition.y * -1.5,
+              scale: [1.2, 0.7, 1.2],
+            }}
+            transition={{
+              x: { type: "spring", damping: 25, stiffness: 40 },
+              y: { type: "spring", damping: 25, stiffness: 40 },
+              scale: {
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              },
+            }}
+          />
+
+          {/* Morphing Shapes */}
+          <motion.div
+            className="absolute top-1/4 right-1/5 w-16 h-16 bg-gradient-to-br from-blue-400/40 to-purple-600/40 shadow-lg"
+            animate={{
+              borderRadius: ["0%", "50%", "25% 75%", "75% 25%", "50%", "0%"],
+              rotate: [0, 90, 180, 270, 360],
+              scale: [1, 1.2, 0.8, 1.1, 1],
+              x: [0, 20, -10, 15, 0],
+              y: [0, -15, 10, -20, 0],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          <motion.div
+            className="absolute bottom-1/3 left-1/5 w-12 h-12 bg-gradient-to-tr from-pink-400/50 to-orange-500/50 shadow-lg"
+            animate={{
+              borderRadius: ["50%", "0%", "50% 0%", "0% 50%", "25%", "50%"],
+              rotate: [360, 270, 180, 90, 0],
+              scale: [0.8, 1.3, 1, 0.9, 1.2, 0.8],
+              x: [0, -25, 15, -10, 20, 0],
+              y: [0, 20, -25, 15, -10, 0],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2,
+            }}
+          />
+
+          <motion.div
+            className="absolute top-2/3 right-1/3 w-10 h-20 bg-gradient-to-b from-cyan-400/45 to-blue-600/45 shadow-lg"
+            animate={{
+              borderRadius: ["0%", "25%", "50%", "10% 90%", "75% 25%", "0%"],
+              rotate: [0, 45, 90, 135, 180, 225, 270, 315, 360],
+              scaleX: [1, 0.5, 1.5, 0.8, 1.2, 1],
+              scaleY: [1, 1.5, 0.7, 1.3, 0.9, 1],
+              x: [0, 10, -20, 15, -5, 0],
+              y: [0, -10, 20, -15, 5, 0],
+            }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 4,
+            }}
+          />
+
+          {/* Color-shifting morphing blob */}
+          <motion.div
+            className="absolute top-1/2 left-1/6 w-20 h-20 shadow-xl blur-sm"
+            animate={{
+              borderRadius: [
+                "30% 70% 70% 30% / 30% 30% 70% 70%",
+                "70% 30% 30% 70% / 70% 70% 30% 30%",
+                "50% 50% 50% 50% / 50% 50% 50% 50%",
+                "25% 75% 75% 25% / 75% 25% 25% 75%",
+                "60% 40% 30% 70% / 60% 30% 70% 40%",
+                "30% 70% 70% 30% / 30% 30% 70% 70%",
+              ],
+              background: [
+                "linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.3))",
+                "linear-gradient(90deg, rgba(147, 51, 234, 0.3), rgba(236, 72, 153, 0.3))",
+                "linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(251, 191, 36, 0.3))",
+                "linear-gradient(180deg, rgba(251, 191, 36, 0.3), rgba(34, 197, 94, 0.3))",
+                "linear-gradient(225deg, rgba(34, 197, 94, 0.3), rgba(6, 182, 212, 0.3))",
+                "linear-gradient(270deg, rgba(6, 182, 212, 0.3), rgba(59, 130, 246, 0.3))",
+              ],
+              scale: [1, 1.4, 0.6, 1.8, 1.1, 1],
+              rotate: [0, 72, 144, 216, 288, 360],
+              x: [0, 15, -20, 25, -10, 0],
+              y: [0, -20, 15, -25, 10, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1,
+            }}
+          />
+
+          {/* More visible animated connecting lines */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none">
+            <motion.path
+              d="M 200 300 Q 400 200 600 400 T 900 350"
+              fill="none"
+              stroke="url(#gradient1)"
+              strokeWidth="2"
+              opacity="0.4"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: [0, 1, 0] }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            <motion.path
+              d="M 100 500 Q 300 350 500 550 T 800 500"
+              fill="none"
+              stroke="url(#gradient2)"
+              strokeWidth="2"
+              opacity="0.4"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: [0, 1, 0] }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 2,
+              }}
+            />
+            <motion.path
+              d="M 150 200 Q 350 400 550 250 T 850 300"
+              fill="none"
+              stroke="url(#gradient3)"
+              strokeWidth="1.5"
+              opacity="0.3"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: [0, 1, 0] }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 4,
+              }}
+            />
+            <defs>
+              <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#3B82F6" stopOpacity="0" />
+                <stop offset="50%" stopColor="#8B5CF6" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#EC4899" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#06B6D4" stopOpacity="0" />
+                <stop offset="50%" stopColor="#3B82F6" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" />
+              </linearGradient>
+              <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0" />
+                <stop offset="50%" stopColor="#EC4899" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#F59E0B" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          {/* Environmental Effects - Animation 8 */}
+          <EnvironmentalEffects />
+
+          {/* Aurora-like Color Waves */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: `
+                radial-gradient(ellipse 100% 40% at 50% 0%, 
+                  rgba(59, 130, 246, 0.1) 0%, 
+                  rgba(147, 51, 234, 0.1) 25%,
+                  rgba(236, 72, 153, 0.1) 50%,
+                  rgba(251, 191, 36, 0.1) 75%,
+                  transparent 100%
+                )
+              `,
+            }}
+            animate={{
+              background: [
+                `radial-gradient(ellipse 100% 40% at 50% 0%, 
+                  rgba(59, 130, 246, 0.1) 0%, 
+                  rgba(147, 51, 234, 0.1) 25%,
+                  rgba(236, 72, 153, 0.1) 50%,
+                  rgba(251, 191, 36, 0.1) 75%,
+                  transparent 100%
+                )`,
+                `radial-gradient(ellipse 100% 40% at 50% 0%, 
+                  rgba(147, 51, 234, 0.15) 0%, 
+                  rgba(236, 72, 153, 0.1) 25%,
+                  rgba(251, 191, 36, 0.1) 50%,
+                  rgba(34, 197, 94, 0.1) 75%,
+                  transparent 100%
+                )`,
+                `radial-gradient(ellipse 100% 40% at 50% 0%, 
+                  rgba(236, 72, 153, 0.1) 0%, 
+                  rgba(251, 191, 36, 0.15) 25%,
+                  rgba(34, 197, 94, 0.1) 50%,
+                  rgba(6, 182, 212, 0.1) 75%,
+                  transparent 100%
+                )`,
+                `radial-gradient(ellipse 100% 40% at 50% 0%, 
+                  rgba(59, 130, 246, 0.1) 0%, 
+                  rgba(147, 51, 234, 0.1) 25%,
+                  rgba(236, 72, 153, 0.1) 50%,
+                  rgba(251, 191, 36, 0.1) 75%,
+                  transparent 100%
+                )`,
+              ],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          {/* Matrix Rain Effect */}
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={`matrix-${i}`}
+              className="absolute w-px bg-gradient-to-b from-green-400/40 via-green-400/20 to-transparent"
+              style={{
+                left: `${10 + i * 12}%`,
+                height: "100px",
+                top: "-100px",
+              }}
+              animate={{
+                y: ["0vh", "120vh"],
+                opacity: [0, 0.8, 0.4, 0],
+              }}
+              transition={{
+                duration: 3 + i * 0.2,
+                repeat: Infinity,
+                delay: i * 0.5,
+                ease: "linear",
+              }}
+            />
+          ))}
+
+          {/* Cosmic Dust Clouds */}
+          <motion.div
+            className="absolute top-10 left-10 w-64 h-32 bg-gradient-to-r from-purple-500/5 via-blue-500/5 to-transparent rounded-full blur-3xl"
+            animate={{
+              x: [0, 300, 600, 0],
+              y: [0, -50, 50, 0],
+              scale: [1, 1.5, 0.8, 1],
+              opacity: [0.3, 0.6, 0.2, 0.3],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          <motion.div
+            className="absolute bottom-20 right-10 w-48 h-24 bg-gradient-to-l from-pink-500/5 via-purple-500/5 to-transparent rounded-full blur-3xl"
+            animate={{
+              x: [0, -250, -500, 0],
+              y: [0, 30, -30, 0],
+              scale: [0.8, 1.3, 1, 0.8],
+              opacity: [0.2, 0.5, 0.3, 0.2],
+            }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 5,
+            }}
+          />
+
+          {/* Nebula Effect */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none opacity-30"
+            style={{
+              background: `
+                conic-gradient(from 0deg at 20% 30%, 
+                  transparent 0deg, 
+                  rgba(59, 130, 246, 0.1) 60deg,
+                  rgba(147, 51, 234, 0.1) 120deg,
+                  transparent 180deg,
+                  rgba(236, 72, 153, 0.1) 240deg,
+                  transparent 360deg
+                )
+              `,
+            }}
+            animate={{
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 60,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        </div>
+
+        <div className="text-center space-y-6 relative z-10">
           <motion.h1
             className="text-4xl md:text-7xl font-bold text-white"
             variants={fadeInUp}
@@ -95,19 +694,58 @@ export default function Home() {
 
           {/* Social Media Icons */}
           <motion.div
-            className="flex justify-center space-x-6 mt-8"
+            className="flex justify-center space-x-6 mt-8 relative"
             variants={fadeInUp}
           >
+            {/* Mouse-reactive magnetic field around social icons */}
+            <motion.div
+              className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 blur-2xl pointer-events-none"
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 360],
+                x: (mousePosition.x - 50) * 0.1,
+                y: (mousePosition.y - 50) * 0.1,
+              }}
+              transition={{
+                scale: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                x: { type: "spring", damping: 20, stiffness: 50 },
+                y: { type: "spring", damping: 20, stiffness: 50 },
+              }}
+            />
+
             {/* LinkedIn */}
             <motion.a
               href="https://www.linkedin.com/in/prakhar-sahu/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-blue-600 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-blue-600 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 group relative z-10"
+              whileHover={{
+                scale: 1.15,
+                rotate: [0, -5, 5, 0],
+                boxShadow: "0 0 30px rgba(59, 130, 246, 0.6)",
+              }}
+              whileTap={{ scale: 0.9 }}
+              animate={{
+                x: (mousePosition.x - 50) * 0.02,
+                y: (mousePosition.y - 50) * 0.02,
+              }}
+              transition={{
+                x: { type: "spring", damping: 30, stiffness: 200 },
+                y: { type: "spring", damping: 30, stiffness: 200 },
+                rotate: { duration: 0.3 },
+              }}
             >
               <Linkedin size={24} className="group-hover:animate-pulse" />
+              <motion.div
+                className="absolute inset-0 rounded-full bg-blue-400/20 pointer-events-none"
+                initial={{ scale: 0, opacity: 0 }}
+                whileHover={{
+                  scale: [1, 1.5, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{ duration: 0.4 }}
+              />
             </motion.a>
 
             {/* GitHub */}
@@ -115,11 +753,33 @@ export default function Home() {
               href="https://github.com/Prakharsahu10"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-gray-800 hover:border-gray-700 hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300 group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-gray-800 hover:border-gray-700 hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300 group relative z-10"
+              whileHover={{
+                scale: 1.15,
+                rotate: [0, 5, -5, 0],
+                boxShadow: "0 0 30px rgba(107, 114, 128, 0.6)",
+              }}
+              whileTap={{ scale: 0.9 }}
+              animate={{
+                x: (mousePosition.x - 50) * 0.015,
+                y: (mousePosition.y - 50) * 0.015,
+              }}
+              transition={{
+                x: { type: "spring", damping: 30, stiffness: 200 },
+                y: { type: "spring", damping: 30, stiffness: 200 },
+                rotate: { duration: 0.3 },
+              }}
             >
               <Github size={24} className="group-hover:animate-pulse" />
+              <motion.div
+                className="absolute inset-0 rounded-full bg-gray-400/20 pointer-events-none"
+                initial={{ scale: 0, opacity: 0 }}
+                whileHover={{
+                  scale: [1, 1.5, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{ duration: 0.4 }}
+              />
             </motion.a>
 
             {/* Twitter */}
@@ -127,11 +787,33 @@ export default function Home() {
               href="https://x.com/Prakhar_018"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-sky-500 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/25 transition-all duration-300 group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-sky-500 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/25 transition-all duration-300 group relative z-10"
+              whileHover={{
+                scale: 1.15,
+                rotate: [0, -10, 10, 0],
+                boxShadow: "0 0 30px rgba(14, 165, 233, 0.6)",
+              }}
+              whileTap={{ scale: 0.9 }}
+              animate={{
+                x: (mousePosition.x - 50) * 0.025,
+                y: (mousePosition.y - 50) * 0.025,
+              }}
+              transition={{
+                x: { type: "spring", damping: 30, stiffness: 200 },
+                y: { type: "spring", damping: 30, stiffness: 200 },
+                rotate: { duration: 0.3 },
+              }}
             >
               <Twitter size={24} className="group-hover:animate-pulse" />
+              <motion.div
+                className="absolute inset-0 rounded-full bg-sky-400/20 pointer-events-none"
+                initial={{ scale: 0, opacity: 0 }}
+                whileHover={{
+                  scale: [1, 1.5, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{ duration: 0.4 }}
+              />
             </motion.a>
 
             {/* Instagram */}
@@ -139,11 +821,33 @@ export default function Home() {
               href="https://www.instagram.com/ig.prakharsahu/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:border-pink-500 hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300 group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:border-pink-500 hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300 group relative z-10"
+              whileHover={{
+                scale: 1.15,
+                rotate: [0, 8, -8, 0],
+                boxShadow: "0 0 30px rgba(236, 72, 153, 0.6)",
+              }}
+              whileTap={{ scale: 0.9 }}
+              animate={{
+                x: (mousePosition.x - 50) * 0.03,
+                y: (mousePosition.y - 50) * 0.03,
+              }}
+              transition={{
+                x: { type: "spring", damping: 30, stiffness: 200 },
+                y: { type: "spring", damping: 30, stiffness: 200 },
+                rotate: { duration: 0.3 },
+              }}
             >
               <Instagram size={24} className="group-hover:animate-pulse" />
+              <motion.div
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400/20 to-pink-400/20 pointer-events-none"
+                initial={{ scale: 0, opacity: 0 }}
+                whileHover={{
+                  scale: [1, 1.5, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{ duration: 0.4 }}
+              />
             </motion.a>
 
             {/* Discord */}
@@ -151,11 +855,33 @@ export default function Home() {
               href="https://discord.com/users/prakhar3866"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-indigo-600 hover:border-indigo-600 hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-indigo-600 hover:border-indigo-600 hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 group relative z-10"
+              whileHover={{
+                scale: 1.15,
+                rotate: [0, -6, 6, 0],
+                boxShadow: "0 0 30px rgba(99, 102, 241, 0.6)",
+              }}
+              whileTap={{ scale: 0.9 }}
+              animate={{
+                x: (mousePosition.x - 50) * 0.018,
+                y: (mousePosition.y - 50) * 0.018,
+              }}
+              transition={{
+                x: { type: "spring", damping: 30, stiffness: 200 },
+                y: { type: "spring", damping: 30, stiffness: 200 },
+                rotate: { duration: 0.3 },
+              }}
             >
               <DiscordIcon size={24} className="group-hover:animate-pulse" />
+              <motion.div
+                className="absolute inset-0 rounded-full bg-indigo-400/20 pointer-events-none"
+                initial={{ scale: 0, opacity: 0 }}
+                whileHover={{
+                  scale: [1, 1.5, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{ duration: 0.4 }}
+              />
             </motion.a>
 
             {/* LeetCode */}
@@ -163,11 +889,33 @@ export default function Home() {
               href="https://leetcode.com/u/PRAKHAR_010/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-yellow-600 hover:border-yellow-600 hover:shadow-lg hover:shadow-yellow-500/25 transition-all duration-300 group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-yellow-600 hover:border-yellow-600 hover:shadow-lg hover:shadow-yellow-500/25 transition-all duration-300 group relative z-10"
+              whileHover={{
+                scale: 1.15,
+                rotate: [0, 12, -12, 0],
+                boxShadow: "0 0 30px rgba(234, 179, 8, 0.6)",
+              }}
+              whileTap={{ scale: 0.9 }}
+              animate={{
+                x: (mousePosition.x - 50) * 0.02,
+                y: (mousePosition.y - 50) * 0.02,
+              }}
+              transition={{
+                x: { type: "spring", damping: 30, stiffness: 200 },
+                y: { type: "spring", damping: 30, stiffness: 200 },
+                rotate: { duration: 0.3 },
+              }}
             >
               <LeetCodeIcon size={24} className="group-hover:animate-pulse" />
+              <motion.div
+                className="absolute inset-0 rounded-full bg-yellow-400/20 pointer-events-none"
+                initial={{ scale: 0, opacity: 0 }}
+                whileHover={{
+                  scale: [1, 1.5, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{ duration: 0.4 }}
+              />
             </motion.a>
           </motion.div>
         </div>
