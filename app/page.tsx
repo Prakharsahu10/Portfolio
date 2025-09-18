@@ -1124,7 +1124,7 @@ export default function Home() {
                   className="bg-gray-800/50 border border-gray-600/50 rounded-t-xl shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 group cursor-pointer"
                   onClick={() =>
                     window.open(
-                      "https://drive.google.com/file/d/1cxFByeVqLzkESNhZhsZjaziQ-luuSasC/view?usp=sharing",
+                      "https://drive.google.com/file/d/1cxFByeVqLzkESNhZhsZjaziQ-luuSasC/view?usp=drive_link",
                       "_blank"
                     )
                   }
