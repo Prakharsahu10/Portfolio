@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { FileText, Briefcase, ExternalLink } from "lucide-react";
+import Image from "next/image";
 import { ReactNode } from "react";
 
 const slideInLeft = {
@@ -100,7 +101,7 @@ export default function ResumeExperienceSection() {
                 className="bg-gray-800/50 border border-gray-600/50 rounded-t-xl shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 group cursor-pointer"
                 onClick={() =>
                   window.open(
-                    "https://drive.google.com/file/d/1cxFByeVqLzkESNhZhsZjaziQ-luuSasC/view?usp=drive_link",
+                    "https://drive.google.com/file/d/18kjWaowoCHOOLfR5lUvys0p06r95qaQN/view?usp=drive_link",
                     "_blank"
                   )
                 }
@@ -122,8 +123,21 @@ export default function ResumeExperienceSection() {
 
                 <div className="p-4 bg-white/5 rounded-b-xl group-hover:bg-white/10 transition-all duration-300">
                   <div className="aspect-[8.5/11] bg-white rounded-lg shadow-2xl overflow-hidden relative">
-                    {/* Resume icon fallback - no preview image needed */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex-col space-y-4">
+                    {/* Resume preview image */}
+                    <Image
+                      src="/resume/resume-preview.png"
+                      alt="Resume Preview"
+                      fill
+                      className="object-contain"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                        const nextElement = e.currentTarget
+                          .nextElementSibling as HTMLElement;
+                        if (nextElement) nextElement.style.display = "flex";
+                      }}
+                    />
+                    {/* Fallback when image fails to load */}
+                    <div className="absolute inset-0 hidden items-center justify-center bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex-col space-y-4">
                       <FileText size={64} className="text-white/80" />
                       <p className="text-white/80 text-lg font-medium">
                         Resume PDF
@@ -161,79 +175,74 @@ export default function ResumeExperienceSection() {
                   window.open("https://linkedin.com/in/prakhar-sahu/", "_blank")
                 }
               >
+                {/* Window Header */}
                 <div className="bg-gray-700/70 border-b border-gray-600/50 rounded-t-xl px-4 py-3 flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  {/* Window Control Buttons */}
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 bg-red-500 rounded-full hover:bg-red-600 transition-colors"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full hover:bg-yellow-600 transition-colors"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full hover:bg-green-600 transition-colors"></div>
                   </div>
-                  <div className="flex items-center space-x-2 text-gray-400 text-sm">
-                    <Briefcase size={16} />
-                    <span>Experience</span>
+
+                  {/* Window Title */}
+                  <div className="flex-1 text-center">
+                    <span className="text-gray-300 text-sm font-medium">
+                      Experience Timeline - Prakhar Sahu
+                    </span>
                   </div>
-                  <div className="flex items-center space-x-2 text-gray-400 group-hover:text-purple-400 transition-colors duration-300">
-                    <ExternalLink size={16} />
+
+                  {/* Window Actions */}
+                  <div className="flex space-x-1">
+                    <button className="w-6 h-6 bg-gray-600/50 hover:bg-gray-500/50 rounded text-gray-300 text-xs flex items-center justify-center transition-colors">
+                      −
+                    </button>
+                    <button className="w-6 h-6 bg-gray-600/50 hover:bg-gray-500/50 rounded text-gray-300 text-xs flex items-center justify-center transition-colors">
+                      □
+                    </button>
+                    <button className="w-6 h-6 bg-red-500/70 hover:bg-red-500 rounded text-white text-xs flex items-center justify-center transition-colors">
+                      ×
+                    </button>
                   </div>
                 </div>
 
+                {/* Window Content - Experience Image Preview */}
                 <div className="p-4 bg-white/5 rounded-b-xl group-hover:bg-white/10 transition-all duration-300 overflow-hidden">
-                  <div className="space-y-6 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
-                    <div className="bg-white/5 border border-white/10 rounded-lg p-6 hover:bg-white/10 transition-all duration-300">
-                      <div className="flex items-start justify-between mb-4">
-                        <div>
-                          <h4 className="text-white font-semibold text-lg">
-                            Technical Team Member
-                          </h4>
-                          <p className="text-purple-400 font-medium">
-                            Google Developer Student Clubs (GDSC) - NMIT
-                          </p>
+                  {/* Image Preview Container */}
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden transform group-hover:scale-[1.02] transition-transform duration-300">
+                    {/* Experience Image Display */}
+                    <div className="w-full h-[280px] bg-gray-50 rounded-lg overflow-hidden border-2 border-gray-300 relative">
+                      <Image
+                        src="/experience/ea_internship.png"
+                        alt="Prakhar Sahu EA Internship Certificate"
+                        fill
+                        className="object-contain bg-white"
+                        style={{ objectFit: "contain" }}
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                          const nextElement = e.currentTarget
+                            .nextElementSibling as HTMLElement;
+                          if (nextElement) nextElement.style.display = "flex";
+                        }}
+                      />
+                      {/* Fallback when image fails to load */}
+                      <div className="absolute inset-0 hidden flex-col items-center justify-center text-center p-8 bg-gray-50">
+                        <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-green-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                          <Briefcase size={48} className="text-white" />
                         </div>
-                        <span className="text-gray-400 text-sm whitespace-nowrap">
-                          Sep 2024 - Present
-                        </span>
+                        <h3 className="text-xl font-bold text-gray-800 mb-2">
+                          Experience Timeline
+                        </h3>
+                        <p className="text-gray-600 mb-4">
+                          Add your experience timeline image to preview here.
+                        </p>
+                        <button className="bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-green-600 transition-all duration-300 font-medium">
+                          View Experience Details
+                        </button>
                       </div>
-                      <ul className="text-gray-300 text-sm space-y-2 list-disc list-inside">
-                        <li>
-                          Contributing to collaborative projects and technical
-                          workshops
-                        </li>
-                        <li>
-                          Organizing and participating in coding events and
-                          hackathons
-                        </li>
-                        <li>
-                          Learning and sharing knowledge about Google
-                          technologies
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="bg-white/5 border border-white/10 rounded-lg p-6 hover:bg-white/10 transition-all duration-300">
-                      <div className="flex items-start justify-between mb-4">
-                        <div>
-                          <h4 className="text-white font-semibold text-lg">
-                            Core Team Member
-                          </h4>
-                          <p className="text-purple-400 font-medium">
-                            Coding Club - NMIT
-                          </p>
-                        </div>
-                        <span className="text-gray-400 text-sm whitespace-nowrap">
-                          Sep 2024 - Present
-                        </span>
-                      </div>
-                      <ul className="text-gray-300 text-sm space-y-2 list-disc list-inside">
-                        <li>
-                          Organizing coding competitions and technical events
-                        </li>
-                        <li>
-                          Mentoring junior students in programming and
-                          problem-solving
-                        </li>
-                        <li>Contributing to club projects and initiatives</li>
-                      </ul>
                     </div>
                   </div>
+
+                  {/* LinkedIn Link */}
                   <div className="mt-4 flex items-center justify-center space-x-2 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
                     <ExternalLink size={16} />
                     <span className="text-sm font-medium">
