@@ -50,54 +50,90 @@ const projects = [
     title: "FinTrack",
     image: "/projects/fintrack.png",
     shadowColor: "blue",
+    gradientFrom: "blue-500/20",
+    gradientTo: "purple-500/20",
+    gradientFromHover: "blue-500/30",
+    gradientToHover: "purple-500/30",
   },
   {
     href: "/projects/streamtalk",
     title: "StreamTalk",
     image: "/projects/streamtalk.png",
     shadowColor: "green",
+    gradientFrom: "blue-500/20",
+    gradientTo: "purple-500/20",
+    gradientFromHover: "blue-500/30",
+    gradientToHover: "purple-500/30",
   },
   {
     href: "/projects/viducate",
     title: "Viducate",
     image: "/projects/viducate.png",
     shadowColor: "purple",
+    gradientFrom: "blue-500/20",
+    gradientTo: "purple-500/20",
+    gradientFromHover: "blue-500/30",
+    gradientToHover: "purple-500/30",
   },
   {
     href: "/projects/snapsummary",
-    title: "SnapSummary",
-    image: "/projects/viducate.png", // Using placeholder until image is added
+    title: "SnapSummary - Chrome Extension",
+    emoji: "🧩",
     shadowColor: "orange",
+    gradientFrom: "orange-500/20",
+    gradientTo: "red-500/20",
+    gradientFromHover: "orange-500/30",
+    gradientToHover: "red-500/30",
   },
   {
     href: "/projects/splitnow",
     title: "SplitNow",
     image: "/projects/splitnow.png",
     shadowColor: "cyan",
+    gradientFrom: "blue-500/20",
+    gradientTo: "purple-500/20",
+    gradientFromHover: "blue-500/30",
+    gradientToHover: "purple-500/30",
   },
   {
     href: "/projects/lumix",
     title: "Lumix",
     image: "/projects/lumix.jpg",
     shadowColor: "pink",
+    gradientFrom: "blue-500/20",
+    gradientTo: "purple-500/20",
+    gradientFromHover: "blue-500/30",
+    gradientToHover: "purple-500/30",
   },
   {
     href: "/projects/feastfly",
     title: "FeastFly",
     image: "/projects/feastfly.jpg",
     shadowColor: "orange",
+    gradientFrom: "blue-500/20",
+    gradientTo: "purple-500/20",
+    gradientFromHover: "blue-500/30",
+    gradientToHover: "purple-500/30",
   },
   {
     href: "/projects/subscription-tracker",
-    title: "Subscription Tracker",
-    image: "/projects/fintrack.png", // Using placeholder until image is added
+    title: "Subscription Tracker System",
+    emoji: "📊",
     shadowColor: "emerald",
+    gradientFrom: "emerald-500/20",
+    gradientTo: "teal-500/20",
+    gradientFromHover: "emerald-500/30",
+    gradientToHover: "teal-500/30",
   },
   {
     href: "/projects/brainblitz",
     title: "BrainBlitz",
     image: "/projects/brainblitz.png",
     shadowColor: "violet",
+    gradientFrom: "blue-500/20",
+    gradientTo: "purple-500/20",
+    gradientFromHover: "blue-500/30",
+    gradientToHover: "purple-500/30",
   },
 ];
 
@@ -132,22 +168,33 @@ export default function ProjectsSection() {
                 >
                   <CardContent className="p-0 flex flex-col h-full w-full">
                     {/* Project Thumbnail */}
-                    <div className="flex-1 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-all duration-300 overflow-hidden relative">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
-                        onError={(e) => {
-                          e.currentTarget.style.display = "none";
-                          const nextElement = e.currentTarget
-                            .nextElementSibling as HTMLElement;
-                          if (nextElement) nextElement.style.display = "flex";
-                        }}
-                      />
-                      <div className="absolute inset-0 hidden items-center justify-center text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
-                        🚀
-                      </div>
+                    <div
+                      className={`flex-1 bg-gradient-to-br from-${project.gradientFrom} to-${project.gradientTo} flex items-center justify-center group-hover:from-${project.gradientFromHover} group-hover:to-${project.gradientToHover} transition-all duration-300 overflow-hidden relative`}
+                    >
+                      {project.image ? (
+                        <>
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-300"
+                            onError={(e) => {
+                              e.currentTarget.style.display = "none";
+                              const nextElement = e.currentTarget
+                                .nextElementSibling as HTMLElement;
+                              if (nextElement)
+                                nextElement.style.display = "flex";
+                            }}
+                          />
+                          <div className="absolute inset-0 hidden items-center justify-center text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                            🚀
+                          </div>
+                        </>
+                      ) : (
+                        <div className="text-6xl text-white/40 group-hover:text-white/60 transition-all duration-300">
+                          {project.emoji}
+                        </div>
+                      )}
                     </div>
 
                     <div className="p-4">
