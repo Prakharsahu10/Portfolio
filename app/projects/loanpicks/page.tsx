@@ -21,7 +21,7 @@ const slideInRight = {
   animate: { opacity: 1, x: 0, transition: { duration: 0.8 } },
 };
 
-export default function BrainBlitzPage() {
+export default function LoanPicksPage() {
   return (
     <div className="min-h-screen pt-20">
       <div className="max-w-6xl mx-auto px-4 py-8">
@@ -51,10 +51,10 @@ export default function BrainBlitzPage() {
           >
             <Card className="bg-white/5 border-white/10 overflow-hidden">
               <CardContent className="p-0">
-                <div className="aspect-[4/3] bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center relative overflow-hidden">
+                <div className="aspect-[4/3] bg-gradient-to-br from-violet-500/20 to-indigo-500/20 flex items-center justify-center relative overflow-hidden">
                   <Image
-                    src="/projects/brainblitz.png"
-                    alt="BrainBlitz Project Screenshot"
+                    src="/projects/loanpicks.png"
+                    alt="Loan Picks Project Screenshot"
                     fill
                     className="object-contain hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
@@ -67,7 +67,7 @@ export default function BrainBlitzPage() {
                     }}
                   />
                   <div className="hidden w-full h-full items-center justify-center text-8xl text-white/40">
-                    🧠
+                    💰
                   </div>
                 </div>
               </CardContent>
@@ -79,7 +79,7 @@ export default function BrainBlitzPage() {
               variants={fadeInUp}
             >
               <motion.a
-                href="https://github.com/Prakharsahu10/BrainBlitz"
+                href="https://github.com/Prakharsahu10/Loan_Picks"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-400 transition-all duration-300 group"
@@ -90,7 +90,7 @@ export default function BrainBlitzPage() {
               </motion.a>
 
               <motion.a
-                href="https://brain-blitz-theta.vercel.app/"
+                href="https://loanpicks-woad.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-green-400 transition-all duration-300 group"
@@ -113,83 +113,79 @@ export default function BrainBlitzPage() {
               className="text-3xl md:text-4xl font-bold text-white"
               variants={fadeInUp}
             >
-              🧠 BrainBlitz
+              Loan Picks
             </motion.h1>
 
             <motion.div className="space-y-4 text-gray-300" variants={fadeInUp}>
               <p className="leading-relaxed mb-6">
-                A comprehensive{" "}
-                <span className="gradient-text">React quiz application</span>{" "}
-                designed to test React.js knowledge with interactive learning
-                features.
+                An{" "}
+                <span className="gradient-text">
+                  AI-powered loan comparison platform
+                </span>{" "}
+                that helps users find their perfect loan from{" "}
+                <span className="gradient-text">15+ top banks</span>, compare
+                rates, check eligibility, and apply instantly with intelligent
+                recommendations powered by{" "}
+                <span className="gradient-text">Google Gemini</span>.
               </p>
 
               <div className="space-y-6">
-                {/* Interactive Learning Platform */}
+                {/* AI-Powered Matching & Chat */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
                     <span className="gradient-text">
-                      Interactive Learning Platform
+                      AI-powered profile-based recommendations
                     </span>{" "}
-                    with{" "}
+                    with top 5 matched loans, intelligent product chat using{" "}
                     <span className="gradient-text">
-                      7 challenging questions
-                    </span>{" "}
-                    focused on{" "}
-                    <span className="gradient-text">React.js concepts</span>,
-                    hooks, JSX, and{" "}
-                    <span className="gradient-text">state management</span>
+                      RAG (Retrieval-Augmented Generation)
+                    </span>
+                    , and smart eligibility assessment grounded in actual
+                    product data
                   </p>
                 </div>
 
-                {/* Advanced State Management */}
+                {/* Advanced Filtering & Comparison */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
+                    Comprehensive{" "}
+                    <span className="gradient-text">loan discovery</span> with
+                    advanced filtering by APR, income, credit score, and loan
+                    type, plus{" "}
                     <span className="gradient-text">
-                      Advanced State Management
+                      side-by-side comparison
                     </span>{" "}
-                    with{" "}
-                    <span className="gradient-text">user answer tracking</span>{" "}
-                    system categorizing{" "}
-                    <span className="gradient-text">
-                      correct, incorrect, and skipped
-                    </span>{" "}
-                    responses with{" "}
-                    <span className="gradient-text">performance analytics</span>
+                    of up to 4 loans with interactive charts
                   </p>
                 </div>
 
-                {/* Real-time Timer Feature */}
+                {/* Badge System & Visualization */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
                     <span className="gradient-text">
-                      Real-time Question Timer
+                      Multi-dimensional scoring system
                     </span>{" "}
-                    with{" "}
-                    <span className="gradient-text">
-                      custom timer component
-                    </span>{" "}
-                    adding <span className="gradient-text">time pressure</span>{" "}
-                    to simulate{" "}
-                    <span className="gradient-text">interview conditions</span>
+                    displaying eligibility badges (Excellent/Good/Fair Match)
+                    based on income, credit score, loan preferences, and{" "}
+                    <span className="gradient-text">data visualization</span>{" "}
+                    with Recharts
                   </p>
                 </div>
 
-                {/* Modern React Architecture */}
+                {/* Real-time & Security */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
                     <span className="gradient-text">
-                      Modern React Architecture
+                      Real-time search and sorting
                     </span>{" "}
-                    using <span className="gradient-text">React 18</span>,{" "}
-                    <span className="gradient-text">functional components</span>
-                    , <span className="gradient-text">hooks</span>, and{" "}
-                    <span className="gradient-text">Vite</span> for optimized
-                    development
+                    with persistent sessions via{" "}
+                    <span className="gradient-text">Supabase Auth</span>,
+                    protected routes with middleware, and secure data handling
+                    with RLS policies
                   </p>
                 </div>
               </div>
@@ -201,16 +197,15 @@ export default function BrainBlitzPage() {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "React 18",
-                  "JavaScript",
-                  "Vite",
-                  "ESLint",
-                  "useState",
-                  "useCallback",
-                  "JSX",
-                  "Component Composition",
-                  "Functional Components",
-                  "Modern Hooks",
+                  "Next.js",
+                  "TypeScript",
+                  "Tailwind CSS",
+                  "Supabase",
+                  "Google Gemini",
+                  "PostgreSQL",
+                  "Framer Motion",
+                  "Recharts",
+                  "Radix UI",
                 ].map((tech) => (
                   <span
                     key={tech}
