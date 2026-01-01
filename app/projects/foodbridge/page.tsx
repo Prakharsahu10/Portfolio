@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ArrowLeft } from "lucide-react";
+import { Github, ExternalLink, ArrowLeft } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,7 +21,7 @@ const slideInRight = {
   animate: { opacity: 1, x: 0, transition: { duration: 0.8 } },
 };
 
-export default function LumixPage() {
+export default function FoodBridgePage() {
   return (
     <div className="min-h-screen pt-20">
       <div className="max-w-6xl mx-auto px-4 py-8">
@@ -51,10 +51,10 @@ export default function LumixPage() {
           >
             <Card className="bg-white/5 border-white/10 overflow-hidden">
               <CardContent className="p-0">
-                <div className="aspect-[4/3] bg-gradient-to-br from-pink-500/20 to-purple-500/20 flex items-center justify-center relative overflow-hidden">
+                <div className="aspect-[4/3] bg-gradient-to-br from-pink-500/20 to-rose-500/20 flex items-center justify-center relative overflow-hidden">
                   <Image
-                    src="/projects/lumix.jpg"
-                    alt="Lumix Project Screenshot"
+                    src="/projects/foodbridge.png"
+                    alt="FoodBridge Project Screenshot"
                     fill
                     className="object-contain hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
@@ -67,7 +67,7 @@ export default function LumixPage() {
                     }}
                   />
                   <div className="hidden w-full h-full items-center justify-center text-8xl text-white/40">
-                    🎬
+                    🍲
                   </div>
                 </div>
               </CardContent>
@@ -79,7 +79,7 @@ export default function LumixPage() {
               variants={fadeInUp}
             >
               <motion.a
-                href="https://github.com/Prakharsahu10/Lumix_app"
+                href="https://github.com/Prakharsahu10/FoodBridge"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-400 transition-all duration-300 group"
@@ -102,85 +102,73 @@ export default function LumixPage() {
               className="text-3xl md:text-4xl font-bold text-white"
               variants={fadeInUp}
             >
-              Lumix
+              FoodBridge
             </motion.h1>
 
             <motion.div className="space-y-4 text-gray-300" variants={fadeInUp}>
               <p className="leading-relaxed mb-6">
-                A modern{" "}
-                <span className="gradient-text">
-                  React Native movie discovery app
-                </span>{" "}
-                built with cutting-edge cross-platform architecture and stunning
-                UI design.
+                A mobile application built with{" "}
+                <span className="gradient-text">Expo + Firebase</span> that
+                connects food donors (restaurants, individuals) with receivers
+                (NGOs, individuals) to{" "}
+                <span className="gradient-text">reduce food waste</span> and{" "}
+                <span className="gradient-text">feed more people</span>.
               </p>
 
               <div className="space-y-6">
-                {/* Modern Cross-Platform Architecture */}
+                {/* Role-based Authentication & Listings */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
-                    Built with{" "}
-                    <span className="gradient-text">React Native 0.79.5</span>{" "}
-                    and <span className="gradient-text">Expo Router</span> for
-                    seamless cross-platform deployment on{" "}
-                    <span className="gradient-text">iOS, Android, and web</span>{" "}
-                    with TypeScript for type safety and file-based routing
-                  </p>
-                </div>
-
-                {/* Advanced UI/UX Design */}
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
-                  <p className="leading-relaxed">
-                    Stunning{" "}
-                    <span className="gradient-text">dark-themed interface</span>{" "}
-                    using{" "}
                     <span className="gradient-text">
-                      TailwindCSS + NativeWind
+                      Role-based authentication
                     </span>{" "}
-                    with custom trending movie cards, parallax scrolls, and{" "}
-                    <span className="gradient-text">glassmorphism effects</span>
+                    for donors and receivers with{" "}
+                    <span className="gradient-text">nearby listings</span>{" "}
+                    featuring distance and expiry indicators, helping users find
+                    available food quickly
                   </p>
                 </div>
 
-                {/* API Integration & Backend */}
+                {/* Request Flow & Real-time Chat */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
-                    Integrated <span className="gradient-text">TMDB API</span>{" "}
-                    for comprehensive movie data and{" "}
+                    Complete{" "}
+                    <span className="gradient-text">request workflow</span> with
+                    accept/reject actions and{" "}
+                    <span className="gradient-text">in-app chat</span> for each
+                    listing, enabling seamless coordination between donors and
+                    receivers for pickup
+                  </p>
+                </div>
+
+                {/* GPS, Maps & Image Uploads */}
+                <div className="flex items-start space-x-3">
+                  <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
+                  <p className="leading-relaxed">
+                    Integrated{" "}
                     <span className="gradient-text">
-                      Appwrite Backend-as-a-Service
+                      GPS & Maps via Expo Location
                     </span>{" "}
-                    for user management, search history, and real-time database
-                    operations
-                  </p>
-                </div>
-
-                {/* Smart Search & Features */}
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
-                  <p className="leading-relaxed">
-                    Advanced{" "}
-                    <span className="gradient-text">real-time search</span> with
-                    instant results,{" "}
+                    with{" "}
                     <span className="gradient-text">
-                      trending movie tracking
+                      image upload to Firebase Storage
                     </span>
-                    , and personalized user profiles with activity tracking
+                    , allowing donors to share photos and precise pickup
+                    locations
                   </p>
                 </div>
 
-                {/* Professional Development */}
+                {/* Ratings & Trust */}
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 rounded-full gradient-bg mt-2 flex-shrink-0"></div>
                   <p className="leading-relaxed">
-                    Clean architecture with{" "}
-                    <span className="gradient-text">ESLint code quality</span>,{" "}
-                    <span className="gradient-text">organized components</span>,
-                    and comprehensive documentation following modern development
-                    practices
+                    <span className="gradient-text">Rating system</span> for
+                    trust and safety, with{" "}
+                    <span className="gradient-text">real-time updates</span> via
+                    Firestore onSnapshot for requests and messages, ensuring a
+                    reliable community
                   </p>
                 </div>
               </div>
@@ -192,18 +180,14 @@ export default function LumixPage() {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {[
+                  "Expo",
                   "React Native",
-                  "Expo Router",
                   "TypeScript",
-                  "TailwindCSS",
-                  "NativeWind",
-                  "TMDB API",
-                  "Appwrite",
-                  "React Native Reanimated",
-                  "ESLint",
-                  "iOS",
-                  "Android",
-                  "Web",
+                  "Firebase Auth",
+                  "Firestore",
+                  "Firebase Storage",
+                  "Expo Location",
+                  "Google Maps API",
                 ].map((tech) => (
                   <span
                     key={tech}
