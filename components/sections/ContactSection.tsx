@@ -1,9 +1,9 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { Linkedin, Twitter, Instagram } from "lucide-react";
+import { Linkedin, Twitter, Instagram, Clock } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
-import { ReactNode } from "react";
+import { ReactNode, useState, useEffect } from "react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -54,6 +54,26 @@ const AnimatedSection = ({
 );
 
 export default function ContactSection() {
+  const [currentTime, setCurrentTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const options: Intl.DateTimeFormatOptions = {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      };
+      setCurrentTime(now.toLocaleTimeString("en-US", options));
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <AnimatedSection
       id="contact"
@@ -69,6 +89,31 @@ export default function ContactSection() {
           viewport={{ once: false, amount: 0.3 }}
           variants={fadeInUp}
         >
+          {/* Availability Status Badge */}
+          <motion.div
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-full px-4 py-2 mb-6"
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.div
+              className="w-2 h-2 bg-green-400 rounded-full"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [1, 0.8, 1],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            <span className="text-green-300 text-sm font-medium">
+              Available for opportunities
+            </span>
+          </motion.div>
+
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Let&apos;s Build Something{" "}
             <span className="gradient-text">Amazing Together</span>
@@ -78,83 +123,47 @@ export default function ContactSection() {
             groundbreaking project, an innovative startup, or just a coffee chat
             about tech - I&apos;m here to connect!
           </p>
-        </motion.div>
 
-        {/* Main Contact Content */}
-        <div className="grid lg:grid-cols-2 gap-16 items-stretch">
-          {/* Left Side - Interactive Map & Location Info */}
+          {/* Quick Stats Row */}
           <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: false, amount: 0.3 }}
-            variants={slideInLeft}
-            className="flex flex-col space-y-8"
+            className="flex flex-wrap justify-center gap-6 mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {/* Interactive Map Container - Expanded */}
-            <div className="relative group flex-1">
-              <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 h-full flex flex-col">
-                <div className="flex-1 min-h-[400px] rounded-xl overflow-hidden border border-white/10 group-hover:shadow-xl group-hover:shadow-blue-500/25 transition-all duration-300">
-                  {/* Google Maps Embed with Fallback */}
-                  <iframe
-                    src="https://maps.google.com/maps?q=Dayananda%20Sagar%20College%20of%20Engineering,%20Bengaluru&t=k&z=15&ie=UTF8&iwloc=&output=embed"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0, minHeight: "400px" }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="rounded-xl"
-                    title="Dayananda Sagar College of Engineering Location"
-                  ></iframe>
+            {/* Response Time */}
+            <div className="flex items-center space-x-2 bg-white/5 border border-white/10 rounded-lg px-4 py-2">
+              <div className="text-yellow-400">⚡</div>
+              <div className="text-left">
+                <div className="text-white text-sm font-medium">
+                  Quick Response
                 </div>
+                <div className="text-gray-400 text-xs">Within 24 hours</div>
+              </div>
+            </div>
 
-                {/* Location Info Overlay */}
-                <div className="mt-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="text-white font-medium">
-                        📍 Dayananda Sagar College of Engineering
-                      </h4>
-                      <p className="text-gray-300 text-sm">
-                        Bengaluru, Karnataka, India
-                      </p>
-                    </div>
-                    <button
-                      onClick={() =>
-                        window.open(
-                          "https://maps.google.com/?q=Dayananda+Sagar+College+of+Engineering,+Bengaluru,+Karnataka",
-                          "_blank"
-                        )
-                      }
-                      className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300 text-sm flex items-center space-x-2 group"
-                    >
-                      <span>Open in Maps</span>
-                      <svg
-                        className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </button>
-                  </div>
+            {/* Timezone */}
+            <div className="flex items-center space-x-2 bg-white/5 border border-white/10 rounded-lg px-4 py-2">
+              <Clock className="text-yellow-400" size={20} />
+              <div className="text-left">
+                <div className="text-white text-sm font-medium">
+                  {currentTime} IST
                 </div>
+                <div className="text-gray-400 text-xs">Bengaluru, India</div>
               </div>
             </div>
           </motion.div>
+        </motion.div>
 
-          {/* Right Side - Contact Form & Social Links */}
+        {/* Main Contact Content */}
+        <div className="max-w-2xl mx-auto">
+          {/* Contact Form & Social Links */}
           <motion.div
             initial="initial"
             whileInView="animate"
             viewport={{ once: false, amount: 0.3 }}
-            variants={slideInRight}
+            variants={fadeInUp}
             className="flex flex-col space-y-8"
           >
             {/* Contact Form */}

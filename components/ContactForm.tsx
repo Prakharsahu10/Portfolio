@@ -141,7 +141,7 @@ export default function ContactForm() {
               onChange={handleInputChange}
               placeholder="Your Name"
               required
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-white/20 transition-all duration-300"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:bg-white/20 transition-all duration-300"
             />
           </div>
           <div>
@@ -152,7 +152,7 @@ export default function ContactForm() {
               onChange={handleInputChange}
               placeholder="Your Email"
               required
-              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-white/20 transition-all duration-300"
+              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:bg-white/20 transition-all duration-300"
             />
           </div>
         </div>
@@ -165,7 +165,7 @@ export default function ContactForm() {
             onChange={handleInputChange}
             placeholder="Subject"
             required
-            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-white/20 transition-all duration-300"
+            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:bg-white/20 transition-all duration-300"
           />
         </div>
 
@@ -177,7 +177,7 @@ export default function ContactForm() {
             placeholder="Tell me about your project or just say hi!"
             rows={5}
             required
-            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-white/20 transition-all duration-300 resize-none"
+            className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500 focus:bg-white/20 transition-all duration-300 resize-none"
           />
         </div>
 
@@ -205,18 +205,18 @@ export default function ContactForm() {
         <motion.button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-lg hover:from-blue-600 hover:to-purple-600 hover:shadow-xl hover:shadow-blue-500/25 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-medium text-lg flex items-center justify-center space-x-2 group relative overflow-hidden"
+          className="w-full bg-gradient-to-r from-yellow-400 to-amber-500 text-white px-8 py-4 rounded-lg hover:from-yellow-500 hover:to-amber-600 hover:shadow-xl hover:shadow-yellow-500/25 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-medium text-lg flex items-center justify-center space-x-2 group relative overflow-hidden"
           whileHover={{
             scale: 1.02,
             boxShadow:
-              "0 20px 25px -5px rgb(59 130 246 / 0.25), 0 10px 10px -5px rgb(59 130 246 / 0.1)",
+              "0 20px 25px -5px rgb(251 191 36 / 0.25), 0 10px 10px -5px rgb(251 191 36 / 0.1)",
           }}
           whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.2 }}
         >
           {/* Animated Background Overlay */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            className="absolute inset-0 bg-gradient-to-r from-amber-600 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             initial={{ x: "-100%" }}
             whileHover={{ x: "0%" }}
             transition={{ duration: 0.3 }}
