@@ -97,7 +97,7 @@ export default function SkillsSection() {
         >
           {skills.map((item) => (
             <motion.div key={item.name} variants={fadeInUp}>
-              <Card className="bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/20 group cursor-pointer h-40">
+              <Card className="bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-xl hover:shadow-amber-500/20 group cursor-pointer h-40">
                 <CardContent className="p-8 flex flex-col items-center justify-center space-y-6 h-full">
                   <div className="relative w-16 h-16 flex items-center justify-center">
                     <Image
@@ -111,7 +111,7 @@ export default function SkillsSection() {
                       }}
                     />
                   </div>
-                  <p className="text-white text-center text-sm font-medium group-hover:text-purple-300 transition-colors duration-300">
+                  <p className="text-white text-center text-sm font-medium group-hover:text-yellow-300 transition-colors duration-300">
                     {item.name}
                   </p>
                 </CardContent>

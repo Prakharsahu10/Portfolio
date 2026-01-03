@@ -59,7 +59,7 @@ export default function TypingAnimation() {
   return (
     <div className="min-h-[4rem] flex items-center justify-center">
       <motion.div
-        className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400"
+        className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -67,7 +67,7 @@ export default function TypingAnimation() {
         <span className="inline-block">
           {displayedText}
           <motion.span
-            className="text-blue-400 ml-1"
+            className="text-yellow-400 ml-1"
             animate={{
               opacity: showCursor ? 1 : 0,
             }}

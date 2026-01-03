@@ -116,11 +116,11 @@
 
 @layer utilities {
   .gradient-text {
-    @apply bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent;
   }
 
   .gradient-text-simple {
-    @apply bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent;
   }
 
   .gradient-bg {
@@ -128,7 +128,7 @@
   }
 
   .gradient-hover {
-    @apply hover:bg-gradient-to-r hover:from-blue-400 hover:via-purple-400 hover:to-pink-400 hover:bg-clip-text hover:text-transparent;
+    @apply hover:bg-gradient-to-r hover:from-yellow-400 hover:via-amber-500 hover:to-orange-500 hover:bg-clip-text hover:text-transparent;
   }
 
   @keyframes shimmer {

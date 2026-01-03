@@ -74,7 +74,7 @@ export default function AboutSection() {
           <motion.div className="flex-shrink-0" variants={slideInLeft}>
             <div className="w-80 h-80 md:w-96 md:h-96 relative">
               {/* Profile Photo Container - Square shape */}
-              <div className="w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/10 shadow-2xl">
+              <div className="w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-yellow-400/20 to-amber-500/20 border border-white/10 shadow-2xl">
                 <Image
                   src="/images/profile-photo.jpg"
                   alt="Prakhar's Profile"
@@ -96,8 +96,8 @@ export default function AboutSection() {
                 </div>
               </div>
               {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full opacity-60"></div>
-              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-purple-500 rounded-full opacity-40"></div>
+              <div className="absolute -top-4 -right-4 w-8 h-8 bg-yellow-500 rounded-full opacity-60"></div>
+              <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-amber-500 rounded-full opacity-40"></div>
             </div>
           </motion.div>
 
@@ -108,7 +108,7 @@ export default function AboutSection() {
           >
             {/* Quote */}
             <motion.blockquote
-              className="text-xl italic text-gray-300 border-l-4 border-blue-500 pl-6 mb-8"
+              className="text-xl italic text-gray-300 border-l-4 border-yellow-500 pl-6 mb-8"
               variants={fadeInUp}
             >
               &ldquo;The best way to predict the future is to invent it.&rdquo;
@@ -139,23 +139,23 @@ export default function AboutSection() {
               variants={fadeInUp}
             >
               My expertise spans across the entire development lifecycle, from{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 frontend architectures
               </span>{" "}
               using{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 React, Next.js, and TypeScript
               </span>{" "}
               to backend systems with{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 Node.js, Express, and Python
               </span>
               . I focus on building{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 RESTful APIs
               </span>{" "}
               and implementing{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 microservices architecture
               </span>{" "}
               for scalable applications.
@@ -166,23 +166,23 @@ export default function AboutSection() {
               variants={fadeInUp}
             >
               In the DevOps realm, I work extensively with{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 containerization using Docker
               </span>
               , orchestration with{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 Kubernetes
               </span>
               , and{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 infrastructure as code
               </span>{" "}
               using tools like{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 Terraform
               </span>
               . I&apos;m experienced in setting up{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 CI/CD pipelines
               </span>{" "}
               with GitHub Actions and Jenkins for automated testing and
@@ -195,18 +195,18 @@ export default function AboutSection() {
             >
               My work has also been recognized internationally — I was selected
               as an{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 International Finalist at IEEE YESIST12 (2025){" "}
-                <span className="font-semibold text-sm bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="font-semibold text-sm bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                   MY
                 </span>
               </span>
               , representing India at{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 Universiti Kebangsaan Malaysia
               </span>{" "}
               for sustainable tech innovation. I also won the{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 Best Project Award
               </span>{" "}
               at IEEE YESIST12 Prelims 2025.
@@ -217,7 +217,7 @@ export default function AboutSection() {
               variants={fadeInUp}
             >
               I&apos;m open to{" "}
-              <span className="font-semibold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="font-semibold bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent">
                 internship opportunities
               </span>{" "}
               where I can collaborate, contribute, and continue learning in both

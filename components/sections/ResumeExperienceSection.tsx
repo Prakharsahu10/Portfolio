@@ -65,21 +65,21 @@ export default function ResumeExperienceSection() {
             transition={{ duration: 1.2, ease: "easeOut" }}
             className="absolute left-1/2 top-0 bottom-0 transform -translate-x-1/2 hidden md:flex flex-col items-center justify-center origin-center"
           >
-            <div className="w-3 h-3 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mb-4 animate-pulse shadow-lg shadow-blue-500/50"></div>
-            <div className="w-px bg-gradient-to-b from-blue-400 via-purple-500 to-pink-400 flex-1 relative overflow-hidden">
+            <div className="w-3 h-3 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full mb-4 animate-pulse shadow-lg shadow-yellow-500/50"></div>
+            <div className="w-px bg-gradient-to-b from-yellow-400 via-amber-500 to-orange-500 flex-1 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-transparent animate-pulse"></div>
             </div>
-            <div className="w-8 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent my-4"></div>
-            <div className="w-2 h-2 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full shadow-lg shadow-purple-500/50"></div>
-            <div className="w-8 h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent my-4"></div>
-            <div className="w-px bg-gradient-to-b from-purple-400 via-pink-500 to-blue-400 flex-1 relative overflow-hidden">
+            <div className="w-8 h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent my-4"></div>
+            <div className="w-2 h-2 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full shadow-lg shadow-amber-500/50"></div>
+            <div className="w-8 h-px bg-gradient-to-r from-transparent via-amber-400 to-transparent my-4"></div>
+            <div className="w-px bg-gradient-to-b from-amber-400 via-orange-500 to-yellow-400 flex-1 relative overflow-hidden">
               <div
                 className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-transparent animate-pulse"
                 style={{ animationDelay: "1s" }}
               ></div>
             </div>
             <div
-              className="w-3 h-3 bg-gradient-to-br from-pink-400 to-blue-500 rounded-full mt-4 animate-pulse shadow-lg shadow-pink-500/50"
+              className="w-3 h-3 bg-gradient-to-br from-orange-400 to-yellow-500 rounded-full mt-4 animate-pulse shadow-lg shadow-orange-500/50"
               style={{ animationDelay: "0.5s" }}
             ></div>
           </motion.div>
@@ -98,7 +98,7 @@ export default function ResumeExperienceSection() {
               </h3>
 
               <div
-                className="bg-gray-800/50 border border-gray-600/50 rounded-t-xl shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 group cursor-pointer"
+                className="bg-gray-800/50 border border-gray-600/50 rounded-t-xl shadow-2xl hover:shadow-amber-500/20 transition-all duration-500 group cursor-pointer"
                 onClick={() =>
                   window.open(
                     "https://drive.google.com/file/d/18kjWaowoCHOOLfR5lUvys0p06r95qaQN/view?usp=drive_link",
@@ -116,7 +116,7 @@ export default function ResumeExperienceSection() {
                     <FileText size={16} />
                     <span>Resume.pdf</span>
                   </div>
-                  <div className="flex items-center space-x-2 text-gray-400 group-hover:text-purple-400 transition-colors duration-300">
+                  <div className="flex items-center space-x-2 text-gray-400 group-hover:text-yellow-400 transition-colors duration-300">
                     <ExternalLink size={16} />
                   </div>
                 </div>
@@ -137,7 +137,7 @@ export default function ResumeExperienceSection() {
                       }}
                     />
                     {/* Fallback when image fails to load */}
-                    <div className="absolute inset-0 hidden items-center justify-center bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex-col space-y-4">
+                    <div className="absolute inset-0 hidden items-center justify-center bg-gradient-to-br from-yellow-400/20 to-amber-500/20 flex-col space-y-4">
                       <FileText size={64} className="text-white/80" />
                       <p className="text-white/80 text-lg font-medium">
                         Resume PDF
@@ -145,7 +145,7 @@ export default function ResumeExperienceSection() {
                       <p className="text-white/60 text-sm">Click to view</p>
                     </div>
                   </div>
-                  <div className="mt-4 flex items-center justify-center space-x-2 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
+                  <div className="mt-4 flex items-center justify-center space-x-2 text-yellow-400 group-hover:text-yellow-300 transition-colors duration-300">
                     <ExternalLink size={16} />
                     <span className="text-sm font-medium">
                       Click to view full resume
@@ -170,7 +170,7 @@ export default function ResumeExperienceSection() {
               </h3>
 
               <div
-                className="bg-gray-800/50 border border-gray-600/50 rounded-t-xl shadow-2xl hover:shadow-purple-500/20 transition-all duration-500 group cursor-pointer"
+                className="bg-gray-800/50 border border-gray-600/50 rounded-t-xl shadow-2xl hover:shadow-amber-500/20 transition-all duration-500 group cursor-pointer"
                 onClick={() =>
                   window.open("https://linkedin.com/in/prakhar-sahu/", "_blank")
                 }
@@ -226,7 +226,7 @@ export default function ResumeExperienceSection() {
                       />
                       {/* Fallback when image fails to load */}
                       <div className="absolute inset-0 hidden flex-col items-center justify-center text-center p-8 bg-gray-50">
-                        <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-green-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                        <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
                           <Briefcase size={48} className="text-white" />
                         </div>
                         <h3 className="text-xl font-bold text-gray-800 mb-2">
@@ -235,7 +235,7 @@ export default function ResumeExperienceSection() {
                         <p className="text-gray-600 mb-4">
                           Add your experience timeline image to preview here.
                         </p>
-                        <button className="bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-3 rounded-lg hover:from-blue-600 hover:to-green-600 transition-all duration-300 font-medium">
+                        <button className="bg-gradient-to-r from-yellow-400 to-amber-500 text-white px-6 py-3 rounded-lg hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 font-medium">
                           View Experience Details
                         </button>
                       </div>
@@ -243,7 +243,7 @@ export default function ResumeExperienceSection() {
                   </div>
 
                   {/* LinkedIn Link */}
-                  <div className="mt-4 flex items-center justify-center space-x-2 text-purple-400 group-hover:text-purple-300 transition-colors duration-300">
+                  <div className="mt-4 flex items-center justify-center space-x-2 text-yellow-400 group-hover:text-yellow-300 transition-colors duration-300">
                     <ExternalLink size={16} />
                     <span className="text-sm font-medium">
                       View full experience on LinkedIn

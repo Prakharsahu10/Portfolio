@@ -5,6 +5,7 @@ import { Linkedin, Github, Twitter, Instagram } from "lucide-react";
 import TypingAnimation from "@/components/typing-animation";
 import DiscordIcon from "@/components/icons/discord-icon";
 import LeetCodeIcon from "@/components/icons/leetcode-icon";
+import MediumIcon from "@/components/icons/medium-icon";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -32,7 +33,7 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         {/* Primary gradient orbs - Optimized for performance */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-blue-500/25 to-purple-500/25 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-yellow-400/25 to-orange-500/25 rounded-full blur-3xl"
           style={{ willChange: "transform" }}
           animate={{
             x: [0, 50, 0],
@@ -47,7 +48,7 @@ export default function HeroSection() {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-amber-500/20 to-yellow-500/20 rounded-full blur-3xl"
           style={{ willChange: "transform" }}
           animate={{
             x: [0, -40, 0],
@@ -65,7 +66,7 @@ export default function HeroSection() {
 
         {/* Additional ambient orbs */}
         <motion.div
-          className="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-to-r from-cyan-400/18 to-blue-500/18 rounded-full blur-3xl"
+          className="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-to-r from-yellow-300/18 to-amber-400/18 rounded-full blur-3xl"
           animate={{
             x: [0, 30, -20, 0],
             y: [0, -40, 20, 0],
@@ -103,8 +104,8 @@ export default function HeroSection() {
           style={{
             background: `
               radial-gradient(ellipse 80% 30% at 50% 0%, 
-                rgba(59, 130, 246, 0.05) 0%, 
-                rgba(147, 51, 234, 0.05) 50%,
+                rgba(139, 92, 246, 0.08) 0%, 
+                rgba(147, 51, 234, 0.08) 50%,
                 transparent 100%
               )
             `,
@@ -141,7 +142,7 @@ export default function HeroSection() {
         >
           {/* Simple background glow */}
           <motion.div
-            className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 blur-xl pointer-events-none"
+            className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400/10 via-amber-500/10 to-orange-500/10 blur-xl pointer-events-none"
             animate={{
               scale: [1, 1.1, 1],
               opacity: [0.5, 0.8, 0.5],
@@ -223,6 +224,18 @@ export default function HeroSection() {
             whileTap={{ scale: 0.95 }}
           >
             <LeetCodeIcon size={24} className="group-hover:animate-pulse" />
+          </motion.a>
+
+          {/* Medium */}
+          <motion.a
+            href="https://medium.com/@prakharsahu487"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-gray-900 hover:border-gray-800 hover:shadow-lg hover:shadow-gray-500/25 transition-all duration-300 group relative z-10"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <MediumIcon size={24} className="group-hover:animate-pulse" />
           </motion.a>
         </motion.div>
       </div>
